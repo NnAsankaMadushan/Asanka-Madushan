@@ -22,20 +22,24 @@ export const EXPERIENCES: Experience[] = [
     period: '2023 Oct - 2024 Jan',
   },
   {
-    role: 'React Native Mobile App Developer',
+    role: 'React Native and Flutter Mobile App Developer',
     company: 'BotCalm Private Limited as an intern',
-    period: '2024 March',
+    period: '2024 MAR - 2024 Aug',
+  },
+  {
+    role: 'Associate Mobile App Developer (React Native and Flutter Mobile App Developer)',
+    company: 'BotCalm Private Limited',
+    period: '2024 Aug - Present',
   },
   {
     role: 'Videographer and Photographer',
-    company: 'REF Media',
-    period: 'Current',
+    company: 'REF Media, Faculty of Engineering, University of Ruhuna',
+    period: '2021 - 2024',
   }
 ];
 
 export const EDUCATION: Education = {
-  degree: "Bachelor's Degree",
-  field: "Electrical and Information Engineering",
+  degree: "B.Sc.Eng. in Electrical and Information Engineering",
   university: "University of Ruhuna"
 };
 
@@ -44,7 +48,9 @@ export const SPECIALIZATIONS: string[] = [
   "Mobile Development",
   "UI/UX Designing",
   "Machine Learning",
-  "Electronics"
+  "Power Systems Engineering",
+  "Electronic Engineering",
+  "Telecommunication Engineering"
 ];
 
 export const PROJECTS: Project[] = [

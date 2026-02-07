@@ -65,8 +65,8 @@ const Hero: React.FC = () => {
           transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
           className="relative group"
         >
-          <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full p-1.5 bg-gradient-to-tr from-purple-500 via-cyan-400 to-indigo-600">
-            <div className="w-full h-full rounded-full overflow-hidden border-4 border-black/50 bg-[#0a0f1e]">
+          <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full p-1.5 bg-gradient-to-tr from-gray-100 via-white to-gray-200">
+            <div className="w-full h-full rounded-full overflow-hidden border-4 border-white bg-[#0a0f1e]">
               <img
                 src="/images/profile.png"
                 alt="Asanka Madushan"
@@ -79,15 +79,6 @@ const Hero: React.FC = () => {
 
         {/* Hero Text Content */}
         <div className="max-w-2xl text-center md:text-left">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            className="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-[0.3em] text-cyan-400 bg-cyan-400/10 border border-cyan-400/20 rounded-full uppercase"
-          >
-            Digital Architect
-          </motion.div>
-
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-8 leading-tight tracking-tight overflow-hidden">
             <span className="block text-slate-400 text-3xl md:text-4xl mb-2">Hello, I'm</span>
             <span className="flex flex-wrap justify-center md:justify-start">

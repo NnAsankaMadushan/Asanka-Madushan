@@ -19,7 +19,7 @@ const Projects: React.FC = () => {
             className="flex items-center justify-center gap-3 mb-4"
           >
             <div className="h-[1px] w-8 bg-cyan-400" />
-            <span className="text-sm font-bold tracking-[0.3em] text-cyan-400 uppercase">Selected Missions</span>
+            <span className="text-sm font-bold tracking-[0.3em] text-cyan-400 uppercase">My Projects</span>
             <div className="h-[1px] w-8 bg-cyan-400" />
           </motion.div>
           <motion.h3 
@@ -29,7 +29,7 @@ const Projects: React.FC = () => {
             transition={{ delay: 0.1 }}
             className="text-5xl font-extrabold text-white tracking-tight"
           >
-            Cosmic Prototypes
+            Featured Work
           </motion.h3>
         </div>
 

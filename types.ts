@@ -26,7 +26,7 @@ export interface Experience {
 
 export interface Education {
   degree: string;
-  field: string;
+  field?: string;
   university: string;
 }
 
