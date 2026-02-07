@@ -1,0 +1,125 @@
+
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { X, Award, Calendar, Compass } from 'lucide-react';
+import { CERTIFICATIONS } from '../constants';
+import { Certification } from '../types';
+
+const Certifications: React.FC = () => {
+  const [selectedCert, setSelectedCert] = useState<Certification | null>(null);
+
+  return (
+    <section id="certifications" className="py-32 relative">
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-24">
+          <div className="mb-8 md:mb-0">
+            <div className="flex items-center gap-2 mb-4">
+              <Compass size={18} className="text-purple-400 animate-spin-slow" />
+              <span className="text-sm font-bold tracking-[0.3em] text-purple-400 uppercase">Verified Credentials</span>
+            </div>
+            <h3 className="text-5xl font-extrabold text-white tracking-tight">Galactic Mastery</h3>
+          </div>
+          <p className="max-w-md text-slate-400 font-medium text-lg italic border-l-2 border-purple-500/50 pl-6">
+            "Exploration is the engine that drives innovation. These certifications are my navigational charts."
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          {CERTIFICATIONS.map((cert, idx) => (
+            <motion.div
+              key={cert.id}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.15 }}
+              whileHover={{ y: -15, scale: 1.02 }}
+              onClick={() => setSelectedCert(cert)}
+              className="group cursor-pointer backdrop-blur-md bg-white/5 p-6 rounded-[3rem] border border-white/10 hover:border-purple-500/50 transition-all duration-500"
+            >
+              <div className="aspect-[4/3] rounded-[2.5rem] overflow-hidden mb-8 relative">
+                <img 
+                  src={cert.image} 
+                  alt={cert.title} 
+                  className="w-full h-full object-cover transition-all duration-700 opacity-60 group-hover:opacity-100 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-purple-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              </div>
+              <div className="px-4 pb-4">
+                <div className="flex items-center gap-2 mb-4 text-[10px] font-black text-purple-400 bg-purple-900/30 px-4 py-2 rounded-full w-fit uppercase tracking-widest">
+                  <Calendar size={12} />
+                  <span>Stardate {cert.date}</span>
+                </div>
+                <h4 className="text-2xl font-bold leading-tight text-white group-hover:text-purple-400 transition-colors mb-4">{cert.title}</h4>
+                <p className="text-xs font-bold text-slate-500 uppercase tracking-widest">{cert.issuer}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* Holographic Detail Modal */}
+      <AnimatePresence>
+        {selectedCert && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-12">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedCert(null)}
+              className="absolute inset-0 bg-black/95 backdrop-blur-3xl"
+            />
+            <motion.div
+              layoutId={selectedCert.id}
+              className="relative w-full max-w-3xl bg-[#0a0f1e] rounded-[4rem] overflow-hidden border border-white/10 shadow-2xl z-10"
+            >
+              <button 
+                onClick={() => setSelectedCert(null)}
+                className="absolute top-10 right-10 z-20 p-4 bg-white/5 hover:bg-purple-600 text-white rounded-full transition-all border border-white/10"
+              >
+                <X size={28} />
+              </button>
+              
+              <div className="h-80 md:h-96 overflow-hidden relative">
+                <img 
+                  src={selectedCert.image} 
+                  alt={selectedCert.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1e] via-transparent to-transparent" />
+              </div>
+
+              <div className="p-12 md:p-20">
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="w-16 h-16 bg-purple-500/20 text-purple-400 rounded-[1.5rem] flex items-center justify-center border border-purple-500/30">
+                    <Award size={32} />
+                  </div>
+                  <div>
+                    <p className="text-sm font-black text-purple-400 uppercase tracking-[0.3em]">{selectedCert.issuer}</p>
+                    <p className="text-xs text-slate-500 font-bold uppercase">Quantum Verified</p>
+                  </div>
+                </div>
+
+                <h3 className="text-4xl font-extrabold mb-10 text-white leading-tight tracking-tight">{selectedCert.title}</h3>
+                
+                <p className="text-slate-400 mb-12 leading-relaxed text-xl italic font-medium">
+                  "{selectedCert.description}"
+                </p>
+
+                <div className="flex gap-6">
+                  <button 
+                    onClick={() => setSelectedCert(null)}
+                    className="flex-1 px-12 py-6 bg-purple-600 text-white font-bold rounded-[2rem] hover:bg-purple-500 transition-all shadow-xl shadow-purple-600/20 uppercase tracking-widest text-sm"
+                  >
+                    Close Protocol
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+    </section>
+  );
+};
+
+export default Certifications;

@@ -1,0 +1,8 @@
+{
+  "name": "Alex Dev - Premium Developer Portfolio",
+  "description": "A high-end, responsive portfolio for a mobile app developer featuring advanced Framer Motion animations, interactive project modals, and integrated Gemini AI chat.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
