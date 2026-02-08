@@ -67,7 +67,8 @@ export const PROJECTS: Project[] = [
       { label: 'Users', value: '4 Types' },
       { label: 'Features', value: 'QR System' },
       { label: 'Tech', value: 'MERN Stack' }
-    ]
+    ],
+    video: '/projects/Fuel Management System/fmq.mp4'
   },
   {
     id: '2',
@@ -82,7 +83,8 @@ export const PROJECTS: Project[] = [
       { label: 'Users', value: '3 Roles' },
       { label: 'Features', value: 'Job Matching' },
       { label: 'Security', value: 'JWT Auth' }
-    ]
+    ],
+    video: '/projects/Job Portal System/job.mp4'
   },
   {
     id: '3',
@@ -112,7 +114,8 @@ export const PROJECTS: Project[] = [
       { label: 'Platform', value: 'Mobile' },
       { label: 'Features', value: 'Bill Payment' },
       { label: 'Type', value: 'FinTech' }
-    ]
+    ],
+    video: '/projects/Money Mate App/moneymate.mp4'
   },
   {
     id: '5',
@@ -127,7 +130,8 @@ export const PROJECTS: Project[] = [
       { label: 'Platform', value: 'Mobile' },
       { label: 'Features', value: 'Job Search' },
       { label: 'Type', value: 'Employment' }
-    ]
+    ],
+    video: '/projects/Job Seek App/Quickhire.mp4'
   },
   {
     id: '6',
@@ -142,7 +146,8 @@ export const PROJECTS: Project[] = [
       { label: 'Tool', value: 'Figma' },
       { label: 'Type', value: 'Prototype' },
       { label: 'Features', value: 'Booking' }
-    ]
+    ],
+    video: '/projects/Train App/train.mp4'
   },
   {
     id: '7',
@@ -153,6 +158,7 @@ export const PROJECTS: Project[] = [
     image: '/projects/Driver App/Driving.png',
     tags: ['React Native', 'Node.js', 'Google Maps API'],
     link: 'https://github.com/Waverista/Driver-App.git',
+    video: '/projects/Driver App/driver app.mp4',
     stats: [
       { label: 'Platform', value: 'Mobile' },
       { label: 'Features', value: 'Ride Matching' },

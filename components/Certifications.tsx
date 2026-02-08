@@ -15,12 +15,12 @@ const Certifications: React.FC = () => {
           <div className="mb-8 md:mb-0">
             <div className="flex items-center gap-2 mb-4">
               <Compass size={18} className="text-purple-400 animate-spin-slow" />
-              <span className="text-sm font-bold tracking-[0.3em] text-purple-400 uppercase">Verified Credentials</span>
+              <span className="text-sm font-bold tracking-[0.3em] text-purple-400 uppercase">My Qualifications</span>
             </div>
-            <h3 className="text-5xl font-extrabold text-white tracking-tight">Galactic Mastery</h3>
+            <h3 className="text-5xl font-extrabold text-white tracking-tight">Certifications & Achievements</h3>
           </div>
-          <p className="max-w-md text-slate-400 font-medium text-lg italic border-l-2 border-purple-500/50 pl-6">
-            "Exploration is the engine that drives innovation. These certifications are my navigational charts."
+          <p className="max-w-md text-slate-400 font-medium text-lg border-l-2 border-purple-500/50 pl-6">
+            Continuous learning and professional development are key to my growth. Here are the certifications I've earned.
           </p>
         </div>
 
@@ -37,9 +37,9 @@ const Certifications: React.FC = () => {
               className="group cursor-pointer backdrop-blur-md bg-white/5 p-6 rounded-[3rem] border border-white/10 hover:border-purple-500/50 transition-all duration-500"
             >
               <div className="aspect-[4/3] rounded-[2.5rem] overflow-hidden mb-8 relative">
-                <img 
-                  src={cert.image} 
-                  alt={cert.title} 
+                <img
+                  src={cert.image}
+                  alt={cert.title}
                   className="w-full h-full object-cover transition-all duration-700 opacity-60 group-hover:opacity-100 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-purple-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -70,25 +70,24 @@ const Certifications: React.FC = () => {
             />
             <motion.div
               layoutId={selectedCert.id}
-              className="relative w-full max-w-3xl bg-[#0a0f1e] rounded-[4rem] overflow-hidden border border-white/10 shadow-2xl z-10"
+              className="relative w-full max-w-5xl bg-[#0a0f1e] rounded-[4rem] overflow-hidden border border-white/10 shadow-2xl z-10 flex flex-col max-h-[90vh]"
             >
-              <button 
+              <button
                 onClick={() => setSelectedCert(null)}
-                className="absolute top-10 right-10 z-20 p-4 bg-white/5 hover:bg-purple-600 text-white rounded-full transition-all border border-white/10"
+                className="absolute top-6 right-6 z-20 p-3 bg-black/50 hover:bg-purple-600 text-white rounded-full transition-all border border-white/10 backdrop-blur-md"
               >
-                <X size={28} />
+                <X size={24} />
               </button>
-              
-              <div className="h-80 md:h-96 overflow-hidden relative">
-                <img 
-                  src={selectedCert.image} 
+
+              <div className="h-[50vh] shrink-0 overflow-hidden relative bg-black/20">
+                <img
+                  src={selectedCert.image}
                   alt={selectedCert.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1e] via-transparent to-transparent" />
               </div>
 
-              <div className="p-12 md:p-20">
+              <div className="p-8 md:p-12 flex-1 overflow-y-auto custom-scrollbar">
                 <div className="flex items-center gap-4 mb-8">
                   <div className="w-16 h-16 bg-purple-500/20 text-purple-400 rounded-[1.5rem] flex items-center justify-center border border-purple-500/30">
                     <Award size={32} />
@@ -99,18 +98,18 @@ const Certifications: React.FC = () => {
                   </div>
                 </div>
 
-                <h3 className="text-4xl font-extrabold mb-10 text-white leading-tight tracking-tight">{selectedCert.title}</h3>
-                
-                <p className="text-slate-400 mb-12 leading-relaxed text-xl italic font-medium">
+                <h3 className="text-4xl font-extrabold mb-8 text-white leading-tight tracking-tight">{selectedCert.title}</h3>
+
+                <p className="text-slate-400 mb-8 leading-relaxed text-xl italic font-medium">
                   "{selectedCert.description}"
                 </p>
 
                 <div className="flex gap-6">
-                  <button 
+                  <button
                     onClick={() => setSelectedCert(null)}
                     className="flex-1 px-12 py-6 bg-purple-600 text-white font-bold rounded-[2rem] hover:bg-purple-500 transition-all shadow-xl shadow-purple-600/20 uppercase tracking-widest text-sm"
                   >
-                    Close Protocol
+                    Close
                   </button>
                 </div>
               </div>

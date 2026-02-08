@@ -9,6 +9,7 @@ export interface Project {
   tags: string[];
   link: string;
   stats: { label: string; value: string }[];
+  video?: string;
 }
 
 export interface Skill {

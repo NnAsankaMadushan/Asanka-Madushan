@@ -22,7 +22,7 @@ const Projects: React.FC = () => {
             <span className="text-sm font-bold tracking-[0.3em] text-cyan-400 uppercase">My Projects</span>
             <div className="h-[1px] w-8 bg-cyan-400" />
           </motion.div>
-          <motion.h3 
+          <motion.h3
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -46,8 +46,8 @@ const Projects: React.FC = () => {
               className="group cursor-pointer backdrop-blur-md bg-white/5 rounded-[3rem] overflow-hidden border border-white/10 hover:border-cyan-400/50 transition-all duration-500"
             >
               <div className="relative h-72 overflow-hidden">
-                <img 
-                  src={project.image} 
+                <img
+                  src={project.image}
                   alt={project.title}
                   className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-1000 grayscale group-hover:grayscale-0 opacity-70 group-hover:opacity-100"
                 />
@@ -94,58 +94,75 @@ const Projects: React.FC = () => {
             />
             <motion.div
               layoutId={selectedProject.id}
-              className="relative w-full max-w-6xl bg-[#0a0f1e] rounded-[4rem] overflow-hidden shadow-[0_0_100px_rgba(34,211,238,0.1)] z-10 flex flex-col md:flex-row max-h-[90vh] border border-white/10"
+              className="relative w-full max-w-5xl bg-[#0a0f1e] rounded-[2.5rem] overflow-hidden shadow-[0_0_100px_rgba(34,211,238,0.1)] z-10 flex flex-col max-h-[90vh] border border-white/10"
             >
-              <button 
+              <button
                 onClick={() => setSelectedProject(null)}
-                className="absolute top-8 right-8 z-20 p-3 bg-white/5 hover:bg-cyan-500 text-white rounded-full transition-all border border-white/10"
+                className="absolute top-6 right-6 z-20 p-2 bg-white/5 hover:bg-cyan-500 text-white rounded-full transition-all border border-white/10 backdrop-blur-md"
               >
-                <X size={28} />
+                <X size={24} />
               </button>
-              
-              <div className="md:w-1/2 relative h-80 md:h-auto overflow-hidden">
-                <img 
-                  src={selectedProject.image} 
-                  alt={selectedProject.title}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#0a0f1e]" />
-              </div>
 
-              <div className="md:w-1/2 p-12 md:p-20 overflow-y-auto custom-scrollbar">
-                <div className="flex items-center gap-2 mb-4">
+              <div className="px-8 pt-8 pb-4 md:px-12 md:pt-10 flex flex-col shrink-0">
+                <div className="flex items-center gap-2 mb-3">
                   <div className="h-[1px] w-6 bg-cyan-500" />
                   <span className="text-xs font-bold text-cyan-400 uppercase tracking-[0.3em]">{selectedProject.category}</span>
                 </div>
-                <h3 className="text-5xl font-extrabold mb-8 text-white tracking-tight">{selectedProject.title}</h3>
-                
-                <div className="flex flex-wrap gap-3 mb-12">
-                  {selectedProject.tags.map(tag => (
-                    <span key={tag} className="px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-xs font-bold text-slate-300 uppercase">{tag}</span>
-                  ))}
-                </div>
+                <h3 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight pr-12">{selectedProject.title}</h3>
+              </div>
 
-                <div className="grid grid-cols-3 gap-6 mb-12">
-                  {selectedProject.stats.map(stat => (
-                    <div key={stat.label} className="p-6 bg-white/5 border border-white/10 rounded-[2rem]">
-                      <div className="text-2xl font-black text-cyan-400 mb-1">{stat.value}</div>
-                      <div className="text-[10px] text-slate-500 uppercase font-black tracking-widest">{stat.label}</div>
+              <div className="w-full aspect-video shrink-0 bg-black/40 flex items-center justify-center overflow-hidden border-y border-white/5">
+                {selectedProject.video ? (
+                  <video
+                    src={selectedProject.video}
+                    controls
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full h-full object-contain"
+                  />
+                ) : (
+                  <img
+                    src={selectedProject.image}
+                    alt={selectedProject.title}
+                    className="w-full h-full object-cover"
+                  />
+                )}
+              </div>
+
+              <div className="w-full p-8 md:p-12 overflow-y-auto custom-scrollbar flex-1 bg-[#0a0f1e]">
+                <div className="flex flex-col md:flex-row gap-8 md:gap-12">
+                  <div className="flex-1">
+                    <div className="flex flex-wrap gap-3 mb-6">
+                      {selectedProject.tags.map(tag => (
+                        <span key={tag} className="px-3 py-1 bg-white/5 border border-white/10 rounded-lg text-[10px] font-bold text-slate-300 uppercase">{tag}</span>
+                      ))}
                     </div>
-                  ))}
-                </div>
+                    <p className="text-slate-400 leading-relaxed text-lg font-medium">
+                      {selectedProject.longDescription}
+                    </p>
+                  </div>
 
-                <p className="text-slate-400 mb-12 leading-relaxed text-xl font-medium">
-                  {selectedProject.longDescription}
-                </p>
-
-                <div className="flex gap-6">
-                  <a 
-                    href={selectedProject.link}
-                    className="flex-1 px-10 py-6 bg-cyan-600 text-white text-center font-bold rounded-2xl flex items-center justify-center gap-3 hover:bg-cyan-500 transition-all shadow-xl shadow-cyan-600/20 uppercase tracking-widest text-sm"
-                  >
-                    <ExternalLink size={20} />
-                    Launch Module
-                  </a>
+                  <div className="w-full md:w-80 shrink-0 flex flex-col gap-6">
+                    <div className="grid grid-cols-2 md:grid-cols-1 gap-4">
+                      {selectedProject.stats.map(stat => (
+                        <div key={stat.label} className="p-4 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-between">
+                          <div>
+                            <div className="text-lg font-black text-cyan-400 mb-0.5">{stat.value}</div>
+                            <div className="text-[9px] text-slate-500 uppercase font-black tracking-widest">{stat.label}</div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    <a
+                      href={selectedProject.link}
+                      className="w-full py-4 bg-cyan-600 text-white text-center font-bold rounded-xl flex items-center justify-center gap-3 hover:bg-cyan-500 transition-all shadow-xl shadow-cyan-600/20 uppercase tracking-widest text-xs"
+                    >
+                      <ExternalLink size={18} />
+                      Launch Module
+                    </a>
+                  </div>
                 </div>
               </div>
             </motion.div>
