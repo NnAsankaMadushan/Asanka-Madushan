@@ -61,7 +61,7 @@ export const PROJECTS: Project[] = [
     description: 'Fuel Management System with four type of users (Vehicle, Station Owner, Operator and Admin).',
     longDescription: 'Fuel Management System with four type of users (Vehicle, Station Owner, Operator and Admin). Showing available fuel quota and creating the QR code for each vehicle. Operator have the access to scan the QR code and check the available fuel quota and give supply whether it\'s possible.',
     image: '/projects/Fuel Management System/fuel.png',
-    tags: ['React', 'Node.js', 'MongoDB', 'QR Code'],
+    tags: ['React', 'Node.js', 'MongoDB', 'React Native', 'QR Code'],
     link: 'https://github.com/Pradeep717/FuelQuotaManagementSystem',
     stats: [
       { label: 'Users', value: '4 Types' },
@@ -124,7 +124,7 @@ export const PROJECTS: Project[] = [
     description: 'This project implements platform with job seeking for employees easily.',
     longDescription: 'QuickHire - A mobile application that makes job seeking easy for employees. This platform connects job seekers with employers, providing a seamless experience for finding and applying to jobs.',
     image: '/projects/Job Seek App/Job.png',
-    tags: ['React Native', 'Node.js', 'MongoDB'],
+    tags: ['Flutter', 'Firebase'],
     link: 'https://github.com/NnAsankaMadushan/QuickHireApp',
     stats: [
       { label: 'Platform', value: 'Mobile' },

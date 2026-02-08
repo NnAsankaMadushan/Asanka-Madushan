@@ -26,14 +26,14 @@ const Header: React.FC<HeaderProps> = () => {
   ];
 
   return (
-    <header className={`fixed top-0 w-full z-50 transition-all duration-700 ${isScrolled ? 'bg-white/80 dark:bg-black/80 backdrop-blur-2xl py-4 border-b border-black/5 dark:border-white/5 shadow-2xl' : 'bg-transparent py-6 md:py-10'}`}>
+    <header className={`fixed top-0 w-full z-[100] transition-all duration-700 ${isScrolled ? 'bg-white/80 dark:bg-black/80 backdrop-blur-2xl py-4 border-b border-black/5 dark:border-white/5 shadow-2xl' : 'bg-transparent py-6 md:py-10'}`}>
       <div className="container mx-auto px-4 sm:px-6 flex items-center justify-between">
         <Magnetic strength={0.2}>
           <motion.a
             href="#home"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="cursor-pointer group"
+            className="cursor-pointer group relative z-[1001]"
           >
             <span className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-[0.1em] uppercase">
               Asanka
@@ -74,7 +74,7 @@ const Header: React.FC<HeaderProps> = () => {
         {/* Mobile Nav Toggle */}
         <div className="md:hidden flex items-center gap-4">
           <button
-            className="text-slate-900 dark:text-white p-2 relative z-[60]"
+            className="text-slate-900 dark:text-white p-2 relative z-[1001] bg-white/5 rounded-full backdrop-blur-md border border-white/10"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle Menu"
           >
@@ -87,32 +87,43 @@ const Header: React.FC<HeaderProps> = () => {
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ y: "-100%", opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: "-100%", opacity: 0 }}
-            transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="md:hidden fixed inset-0 z-[55] w-full h-screen bg-white/98 dark:bg-black/98 backdrop-blur-3xl flex flex-col items-center justify-center"
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ type: "spring", damping: 30, stiffness: 200 }}
+            className="md:hidden fixed inset-0 z-[1000] w-full h-screen bg-black/95 backdrop-blur-2xl flex flex-col items-center justify-center font-black"
           >
-            <div className="flex flex-col items-center gap-10">
-              {navLinks.map((link) => (
-                <a
+            <div className="flex flex-col items-center gap-10 relative z-10 w-full px-10">
+              {navLinks.map((link, idx) => (
+                <motion.a
                   key={link.name}
                   href={link.href}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 + idx * 0.1 }}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-4xl font-black text-slate-900 dark:text-white uppercase tracking-widest hover:text-cyan-400 transition-colors"
+                  className="group relative flex items-center gap-4 text-4xl font-black text-white uppercase tracking-widest hover:text-cyan-400 transition-colors w-full justify-center"
                 >
                   {link.name}
-                </a>
+                </motion.a>
               ))}
-              <a
+
+              <motion.a
                 href="/Asanka_Madushan.pdf"
                 download
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 + navLinks.length * 0.1 }}
                 onClick={() => setMobileMenuOpen(false)}
-                className="mt-6 flex items-center gap-3 px-8 py-4 bg-cyan-600 text-white font-black rounded-2xl uppercase tracking-[0.2em]"
+                className="mt-10 flex items-center gap-3 px-10 py-5 bg-cyan-600 hover:bg-cyan-500 text-white font-black rounded-[2rem] uppercase tracking-[0.2em] shadow-2xl shadow-cyan-600/20 transition-all active:scale-95 text-sm"
               >
                 <Download size={20} />
                 Download CV
-              </a>
+              </motion.a>
+            </div>
+
+            <div className="absolute bottom-10 left-0 w-full flex justify-center gap-8 opacity-40">
+              <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">© 2026 Asanka</span>
             </div>
           </motion.div>
         )}

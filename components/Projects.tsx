@@ -62,7 +62,7 @@ const Projects: React.FC = () => {
                 <h4 className="text-2xl md:text-3xl font-bold mb-4 text-white group-hover:text-cyan-400 transition-colors">{project.title}</h4>
                 <p className="text-slate-400 mb-6 md:mb-8 text-sm leading-relaxed line-clamp-2">{project.description}</p>
                 <div className="flex flex-wrap gap-2 mb-6 md:mb-8">
-                  {project.tags.slice(0, 3).map(tag => (
+                  {project.tags.slice(0, 5).map(tag => (
                     <span key={tag} className="text-[10px] px-3 py-1.5 bg-white/5 border border-white/10 text-slate-500 rounded-lg font-bold uppercase tracking-tighter group-hover:border-cyan-400/20 group-hover:text-slate-300 transition-all">
                       {tag}
                     </span>

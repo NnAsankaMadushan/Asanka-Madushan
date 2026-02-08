@@ -9,6 +9,7 @@ import Projects from './components/Projects';
 import Certifications from './components/Certifications';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import QuickContact from './components/QuickContact';
 import GeminiChat from './components/GeminiChat';
 import CustomCursor from './components/CustomCursor';
 
@@ -50,6 +51,7 @@ const App: React.FC = () => {
       </main>
 
       <Footer />
+      <QuickContact />
       <GeminiChat />
 
       <AnimatePresence>
