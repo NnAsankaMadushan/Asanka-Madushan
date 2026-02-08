@@ -79,19 +79,23 @@ const Hero: React.FC = () => {
 
         {/* Hero Text Content */}
         <div className="max-w-2xl text-center md:text-left">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 md:mb-8 leading-tight tracking-tight overflow-hidden">
-            <span className="block text-slate-400 text-xl md:text-4xl mb-2">Hello, I'm</span>
-            <span className="flex flex-wrap justify-center md:justify-start">
-              {titleText.split("").map((char, i) => (
-                <motion.span
-                  key={i}
-                  initial={{ y: "100%" }}
-                  animate={{ y: 0 }}
-                  transition={{ delay: 0.8 + (i * 0.03), duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                  className="bg-gradient-to-r from-purple-400 via-cyan-300 to-indigo-400 bg-clip-text text-transparent inline-block whitespace-pre"
-                >
-                  {char}
-                </motion.span>
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 md:mb-8 leading-[1.1] tracking-tight">
+            <span className="block text-slate-400 text-lg md:text-3xl mb-2 font-medium">Hello, I'm</span>
+            <span className="flex flex-wrap justify-center md:justify-start gap-x-3 gap-y-1 md:gap-x-4">
+              {titleText.split(" ").map((word, wordIndex) => (
+                <span key={wordIndex} className="inline-flex whitespace-nowrap overflow-hidden">
+                  {word.split("").map((char, charIndex) => (
+                    <motion.span
+                      key={charIndex}
+                      initial={{ y: "100%" }}
+                      animate={{ y: 0 }}
+                      transition={{ delay: 0.8 + (wordIndex * 0.2) + (charIndex * 0.02), duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                      className="bg-gradient-to-r from-purple-400 via-cyan-300 to-indigo-400 bg-clip-text text-transparent inline-block"
+                    >
+                      {char}
+                    </motion.span>
+                  ))}
+                </span>
               ))}
             </span>
           </h1>

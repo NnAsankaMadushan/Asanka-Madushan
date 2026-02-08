@@ -22,7 +22,7 @@ const itemVariants = {
 const About: React.FC = () => {
   return (
     <section id="about" className="py-20 md:py-40 relative">
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -36,7 +36,7 @@ const About: React.FC = () => {
           </motion.div>
           <motion.h2
             variants={itemVariants}
-            className="text-4xl md:text-6xl font-black text-white tracking-tight"
+            className="text-3xl sm:text-5xl md:text-6xl font-black text-white tracking-tight"
           >
             About Me
           </motion.h2>

@@ -10,7 +10,7 @@ const Projects: React.FC = () => {
 
   return (
     <section id="projects" className="py-20 md:py-32 relative">
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="text-center mb-12 md:mb-24">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -27,7 +27,7 @@ const Projects: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-3xl md:text-5xl font-extrabold text-white tracking-tight"
+            className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight"
           >
             Featured Work
           </motion.h3>

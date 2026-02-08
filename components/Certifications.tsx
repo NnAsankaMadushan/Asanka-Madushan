@@ -10,14 +10,14 @@ const Certifications: React.FC = () => {
 
   return (
     <section id="certifications" className="py-20 md:py-32 relative">
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 md:mb-24">
           <div className="mb-8 md:mb-0">
             <div className="flex items-center gap-2 mb-4">
               <Compass size={18} className="text-purple-400 animate-spin-slow" />
               <span className="text-sm font-bold tracking-[0.3em] text-purple-400 uppercase">My Qualifications</span>
             </div>
-            <h3 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight">Certifications & Achievements</h3>
+            <h3 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">Certifications & Achievements</h3>
           </div>
           <p className="max-w-md text-slate-400 font-medium text-base md:text-lg border-l-2 border-purple-500/50 pl-6">
             Continuous learning and professional development are key to my growth. Here are the certifications I've earned.

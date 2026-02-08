@@ -21,7 +21,7 @@ const Contact: React.FC = () => {
 
   return (
     <section id="contact" className="py-16 md:py-24 bg-[#080c14] relative">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-10 md:gap-16">
           <div className="lg:w-1/3">
             <motion.h2

@@ -27,7 +27,7 @@ const Header: React.FC<HeaderProps> = () => {
 
   return (
     <header className={`fixed top-0 w-full z-50 transition-all duration-700 ${isScrolled ? 'bg-white/80 dark:bg-black/80 backdrop-blur-2xl py-4 border-b border-black/5 dark:border-white/5 shadow-2xl' : 'bg-transparent py-6 md:py-10'}`}>
-      <div className="container mx-auto px-6 flex items-center justify-between">
+      <div className="container mx-auto px-4 sm:px-6 flex items-center justify-between">
         <Magnetic strength={0.2}>
           <motion.a
             href="#home"
@@ -35,7 +35,7 @@ const Header: React.FC<HeaderProps> = () => {
             animate={{ opacity: 1, x: 0 }}
             className="cursor-pointer group"
           >
-            <span className="text-2xl font-black text-slate-900 dark:text-white tracking-[0.1em] uppercase">
+            <span className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-[0.1em] uppercase">
               Asanka
             </span>
           </motion.a>
