@@ -160,7 +160,7 @@ const Projects: React.FC = () => {
                       className="w-full py-4 bg-cyan-600 text-white text-center font-bold rounded-xl flex items-center justify-center gap-3 hover:bg-cyan-500 transition-all shadow-xl shadow-cyan-600/20 uppercase tracking-widest text-xs"
                     >
                       <ExternalLink size={18} />
-                      Launch Module
+                      Git Repository
                     </a>
                   </div>
                 </div>

@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Send, Github, Linkedin, Twitter, Mail, MapPin, Phone } from 'lucide-react';
+import { Send, Github, Linkedin, Twitter, Mail, MapPin, Phone, Loader2 } from 'lucide-react';
 
 const Contact: React.FC = () => {
   const [formState, setFormState] = useState({ name: '', email: '', message: '' });
@@ -134,7 +134,10 @@ const Contact: React.FC = () => {
                 className={`w-full py-5 rounded-2xl font-bold flex items-center justify-center gap-3 transition-all ${isSent ? 'bg-green-600' : 'bg-cyan-600 hover:bg-cyan-700'} text-white shadow-xl shadow-cyan-600/20`}
               >
                 {isSubmitting ? (
-                  <div className="w-6 h-6 border-3 border-white/30 border-t-white rounded-full animate-spin" />
+                  <div className="flex items-center gap-3">
+                    <Loader2 className="w-5 h-5 animate-spin" />
+                    <span>Sending...</span>
+                  </div>
                 ) : isSent ? (
                   <>Sent Successfully! ✅</>
                 ) : (

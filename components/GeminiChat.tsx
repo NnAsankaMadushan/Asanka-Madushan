@@ -1,7 +1,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageSquare, X, Send, Bot } from 'lucide-react';
+import { MessageSquare, X, Send, Bot, Loader2 } from 'lucide-react';
 import { GoogleGenAI } from '@google/genai';
 
 const GeminiChat: React.FC = () => {
@@ -114,7 +114,11 @@ const GeminiChat: React.FC = () => {
                   disabled={isLoading}
                   className="absolute right-2 top-1.5 p-2 text-cyan-400 hover:bg-cyan-900/30 rounded-lg transition-all"
                 >
-                  <Send size={18} />
+                  {isLoading ? (
+                    <Loader2 size={18} className="animate-spin" />
+                  ) : (
+                    <Send size={18} />
+                  )}
                 </button>
               </div>
             </div>
