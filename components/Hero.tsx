@@ -56,7 +56,7 @@ const Hero: React.FC = () => {
 
       <motion.div
         style={{ y: y1, opacity }}
-        className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-center gap-12 lg:gap-24 relative z-10"
+        className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 lg:gap-24 relative z-10"
       >
         {/* Profile Image with Cosmic Aura */}
         <motion.div
@@ -65,7 +65,7 @@ const Hero: React.FC = () => {
           transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
           className="relative group"
         >
-          <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full p-1.5 bg-gradient-to-tr from-gray-100 via-white to-gray-200">
+          <div className="relative w-48 h-48 md:w-80 md:h-80 rounded-full p-1.5 bg-gradient-to-tr from-gray-100 via-white to-gray-200">
             <div className="w-full h-full rounded-full overflow-hidden border-4 border-white bg-[#0a0f1e]">
               <img
                 src="/images/profile.png"
@@ -79,8 +79,8 @@ const Hero: React.FC = () => {
 
         {/* Hero Text Content */}
         <div className="max-w-2xl text-center md:text-left">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-8 leading-tight tracking-tight overflow-hidden">
-            <span className="block text-slate-400 text-3xl md:text-4xl mb-2">Hello, I'm</span>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 md:mb-8 leading-tight tracking-tight overflow-hidden">
+            <span className="block text-slate-400 text-xl md:text-4xl mb-2">Hello, I'm</span>
             <span className="flex flex-wrap justify-center md:justify-start">
               {titleText.split("").map((char, i) => (
                 <motion.span
@@ -100,7 +100,7 @@ const Hero: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.4, duration: 0.8 }}
-            className="text-slate-400 text-lg md:text-xl leading-relaxed mb-10 font-medium"
+            className="text-slate-400 text-base md:text-xl leading-relaxed mb-8 md:mb-10 font-medium"
           >
             I am an Electrical and Information Engineering undergraduate at the <span className="text-white">University of Ruhuna</span>.
             Passionate about full-stack development, I work with React, Node.js, Python, Flutter, React Native, Figma, and n8n Automation.

@@ -30,9 +30,9 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#020617] text-slate-100 overflow-x-hidden selection:bg-cyan-500/30 cursor-none transition-colors duration-500">
+    <div className="min-h-screen bg-[#020617] text-slate-100 overflow-x-hidden selection:bg-cyan-500/30 md:cursor-none transition-colors duration-500">
       <CustomCursor />
-      
+
       {/* Custom Scroll Progress Bar */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-400 to-purple-500 z-[100] origin-left"
@@ -40,7 +40,7 @@ const App: React.FC = () => {
       />
 
       <Header />
-      
+
       <main className="relative z-10">
         <Hero />
         <About />
@@ -60,7 +60,7 @@ const App: React.FC = () => {
             exit={{ opacity: 0, scale: 0.5 }}
             whileHover={{ scale: 1.1, backgroundColor: '#0891b2' }}
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="fixed bottom-8 left-8 z-40 p-4 bg-cyan-600 text-white rounded-full shadow-lg shadow-cyan-500/20 transition-colors"
+            className="fixed bottom-6 left-6 md:bottom-8 md:left-8 z-40 p-4 bg-cyan-600 text-white rounded-full shadow-lg shadow-cyan-500/20 transition-colors"
           >
             <ArrowUp size={24} />
           </motion.button>

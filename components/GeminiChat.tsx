@@ -30,7 +30,7 @@ const GeminiChat: React.FC = () => {
     try {
       const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       const systemInstruction = "You are an AI assistant for Asanka Madushan, an Electrical and Information Engineering student. Expertise: Web (React, Node, Tailwind), Mobile (React Native, Flutter), ML. Education: University of Ruhuna. Tone: Professional, technical, helpful. Keep answers concise.";
-      
+
       const response = await ai.models.generateContent({
         model: 'gemini-3-flash-preview',
         contents: [{ parts: [{ text: userMessage }] }],
@@ -50,14 +50,14 @@ const GeminiChat: React.FC = () => {
   };
 
   return (
-    <div className="fixed bottom-8 right-8 z-[60]">
+    <div className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-[60]">
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            className="absolute bottom-20 right-0 w-[350px] md:w-[400px] h-[500px] bg-[#0c1529] rounded-[2rem] shadow-2xl border border-slate-800 flex flex-col overflow-hidden"
+            className="absolute bottom-20 -right-2 md:right-0 w-[calc(100vw-3rem)] sm:w-[350px] md:w-[400px] h-[500px] bg-[#0c1529] rounded-[2rem] shadow-2xl border border-slate-800 flex flex-col overflow-hidden"
           >
             {/* Header */}
             <div className="p-6 bg-cyan-600 text-white flex items-center justify-between">
@@ -101,7 +101,7 @@ const GeminiChat: React.FC = () => {
             {/* Input */}
             <div className="p-4 border-t border-slate-800">
               <div className="relative">
-                <input 
+                <input
                   type="text"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
@@ -109,7 +109,7 @@ const GeminiChat: React.FC = () => {
                   placeholder="Ask me anything..."
                   className="w-full bg-[#050b18] text-white rounded-xl px-4 py-3 pr-12 text-sm border border-slate-800 focus:outline-none focus:ring-2 focus:ring-cyan-600 transition-all"
                 />
-                <button 
+                <button
                   onClick={handleSend}
                   disabled={isLoading}
                   className="absolute right-2 top-1.5 p-2 text-cyan-400 hover:bg-cyan-900/30 rounded-lg transition-all"

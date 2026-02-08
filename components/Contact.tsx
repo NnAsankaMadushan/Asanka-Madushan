@@ -20,9 +20,9 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-[#080c14] relative">
+    <section id="contact" className="py-16 md:py-24 bg-[#080c14] relative">
       <div className="container mx-auto px-6">
-        <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-16">
+        <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-10 md:gap-16">
           <div className="lg:w-1/3">
             <motion.h2
               initial={{ opacity: 0, x: -20 }}
@@ -36,15 +36,15 @@ const Contact: React.FC = () => {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="text-4xl font-bold mb-8 text-white"
+              className="text-3xl md:text-4xl font-bold mb-6 md:mb-8 text-white"
             >
               Get in Touch
             </motion.h3>
-            <p className="text-slate-400 mb-10 text-lg">
+            <p className="text-slate-400 mb-8 md:mb-10 text-base md:text-lg">
               Have a project in mind? Looking to hire a skilled developer? Let's connect and build something amazing together.
             </p>
 
-            <div className="space-y-6 mb-12">
+            <div className="space-y-6 mb-8 md:mb-12">
               {[
                 { icon: <Mail size={20} />, label: 'Email', value: 'nnamadushan@gmail.com' },
                 { icon: <Phone size={20} />, label: 'Phone', value: '+94 78 775 5812' },
@@ -82,7 +82,7 @@ const Contact: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-[#0c1529] p-8 md:p-12 rounded-[2.5rem] border border-white/5 shadow-2xl"
+              className="bg-[#0c1529] p-6 md:p-12 rounded-[2rem] md:rounded-[2.5rem] border border-white/5 shadow-2xl"
             >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                 <div className="group relative">

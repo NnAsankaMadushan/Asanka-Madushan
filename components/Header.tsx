@@ -26,7 +26,7 @@ const Header: React.FC<HeaderProps> = () => {
   ];
 
   return (
-    <header className={`fixed top-0 w-full z-50 transition-all duration-700 ${isScrolled ? 'bg-white/80 dark:bg-black/80 backdrop-blur-2xl py-4 border-b border-black/5 dark:border-white/5 shadow-2xl' : 'bg-transparent py-10'}`}>
+    <header className={`fixed top-0 w-full z-50 transition-all duration-700 ${isScrolled ? 'bg-white/80 dark:bg-black/80 backdrop-blur-2xl py-4 border-b border-black/5 dark:border-white/5 shadow-2xl' : 'bg-transparent py-6 md:py-10'}`}>
       <div className="container mx-auto px-6 flex items-center justify-between">
         <Magnetic strength={0.2}>
           <motion.a
