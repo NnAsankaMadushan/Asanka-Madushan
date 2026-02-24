@@ -1,14 +1,23 @@
 
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
-import { Linkedin, Github, Facebook, Youtube, Instagram } from 'lucide-react';
+import { Linkedin, Github, Facebook, Youtube, Instagram, Download } from 'lucide-react';
 import Magnetic from './Magnetic';
+
+const rotatingHeadlines = [
+  'Mobile App Developer',
+  'Full-Stack Developer',
+  'Electrical and Information Engineer',
+];
 
 const Hero: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 500], [0, 200]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
+  const [headlineIndex, setHeadlineIndex] = useState(0);
+  const [typedHeadline, setTypedHeadline] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
 
   // Mouse position for background glow
   const mouseX = useMotionValue(0);
@@ -34,7 +43,39 @@ const Hero: React.FC = () => {
     { icon: <Instagram size={20} />, href: "https://www.instagram.com/asa___nka/" },
   ];
 
-  const titleText = "Asanka Madushan";
+  useEffect(() => {
+    const currentHeadline = rotatingHeadlines[headlineIndex];
+    let delay = isDeleting ? 45 : 90;
+
+    if (!isDeleting && typedHeadline === currentHeadline) {
+      delay = 1200;
+    }
+
+    if (isDeleting && typedHeadline.length === 0) {
+      delay = 300;
+    }
+
+    const timer = window.setTimeout(() => {
+      if (!isDeleting) {
+        const nextText = currentHeadline.slice(0, typedHeadline.length + 1);
+        setTypedHeadline(nextText);
+
+        if (nextText === currentHeadline) {
+          setIsDeleting(true);
+        }
+      } else {
+        const nextText = currentHeadline.slice(0, typedHeadline.length - 1);
+        setTypedHeadline(nextText);
+
+        if (nextText.length === 0) {
+          setIsDeleting(false);
+          setHeadlineIndex((prev) => (prev + 1) % rotatingHeadlines.length);
+        }
+      }
+    }, delay);
+
+    return () => window.clearTimeout(timer);
+  }, [headlineIndex, isDeleting, typedHeadline]);
 
   return (
     <section
@@ -79,37 +120,61 @@ const Hero: React.FC = () => {
 
         {/* Hero Text Content */}
         <div className="max-w-2xl text-center md:text-left">
-          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 md:mb-8 leading-[1.1] tracking-tight">
-            <span className="block text-slate-400 text-lg md:text-3xl mb-2 font-medium">Hello, I'm</span>
-            <span className="flex flex-wrap justify-center md:justify-start gap-x-3 gap-y-1 md:gap-x-4">
-              {titleText.split(" ").map((word, wordIndex) => (
-                <span key={wordIndex} className="inline-flex whitespace-nowrap overflow-hidden">
-                  {word.split("").map((char, charIndex) => (
-                    <motion.span
-                      key={charIndex}
-                      initial={{ y: "100%" }}
-                      animate={{ y: 0 }}
-                      transition={{ delay: 0.8 + (wordIndex * 0.2) + (charIndex * 0.02), duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                      className="bg-gradient-to-r from-purple-400 via-cyan-300 to-indigo-400 bg-clip-text text-transparent inline-block"
-                    >
-                      {char}
-                    </motion.span>
-                  ))}
-                </span>
-              ))}
-            </span>
-          </h1>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.55, duration: 0.7 }}
+            className="text-4xl sm:text-6xl md:text-7xl font-extrabold text-slate-100 mb-2 leading-[1.05] tracking-tight"
+          >
+            Asanka Madushan
+          </motion.h1>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.7 }}
+            className="text-xl sm:text-3xl md:text-4xl font-semibold text-slate-400 mb-4 md:mb-5"
+          >
+            Associate Software Engineer
+          </motion.h2>
+
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1, duration: 0.7 }}
+            className="h-8 sm:h-10 md:h-12 mb-6 md:mb-8 flex items-center justify-center md:justify-start text-base sm:text-xl md:text-2xl font-medium text-white"
+          >
+            <span className="truncate">{typedHeadline}</span>
+            <span className="ml-1 inline-block w-[2px] h-5 sm:h-6 md:h-8 bg-cyan-300 animate-pulse" />
+          </motion.div>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.4, duration: 0.8 }}
+            transition={{ delay: 1.2, duration: 0.8 }}
             className="text-slate-400 text-base md:text-xl leading-relaxed mb-8 md:mb-10 font-medium"
           >
-            I am an Electrical and Information Engineering undergraduate at the <span className="text-white">University of Ruhuna</span>.
-            Passionate about full-stack development, I work with React, Node.js, Python, Flutter, React Native, Figma, and n8n Automation.
-            I also explore machine learning and UI/UX design to create innovative digital solutions.
+            Building high-performance digital products with React, Node.js, Flutter, and automation workflows.
+            I focus on scalable architecture, smooth user experience, and practical engineering outcomes.
           </motion.p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 sm:gap-5 mb-6 md:mb-8">
+            <Magnetic>
+              <motion.a
+                href="/Asanka_Madushan.pdf"
+                download
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.4, duration: 0.6 }}
+                whileHover={{ scale: 1.03, y: -1 }}
+                whileTap={{ scale: 0.97 }}
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-cyan-500 text-white text-xs sm:text-sm font-bold uppercase tracking-[0.18em] shadow-lg shadow-cyan-500/20 hover:bg-cyan-400 transition-colors"
+              >
+                <Download size={16} />
+                Resume
+              </motion.a>
+            </Magnetic>
+          </div>
 
           {/* Magnetic Social Icons */}
           <div className="flex items-center justify-center md:justify-start gap-5">

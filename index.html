@@ -32,70 +32,6 @@
             scrollbar-width: none;
         }
 
-        .stars-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
-            overflow: hidden;
-        }
-
-        .star {
-            position: absolute;
-            background: white;
-            border-radius: 50%;
-            opacity: 0.5;
-            animation: twinkle var(--duration) infinite ease-in-out;
-        }
-
-        @keyframes twinkle {
-
-            0%,
-            100% {
-                opacity: 0.3;
-                transform: scale(1);
-            }
-
-            50% {
-                opacity: 1;
-                transform: scale(1.2);
-            }
-        }
-
-        .nebula {
-            position: fixed;
-            width: 600px;
-            height: 600px;
-            border-radius: 50%;
-            filter: blur(120px);
-            opacity: 0.15;
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        @media (max-width: 768px) {
-            .nebula {
-                width: 300px;
-                height: 300px;
-                filter: blur(80px);
-            }
-        }
-
-        .nebula-purple {
-            background: #a855f7;
-            top: -100px;
-            right: -100px;
-        }
-
-        .nebula-blue {
-            background: #06b6d4;
-            bottom: -100px;
-            left: -100px;
-        }
-
         .custom-scrollbar::-webkit-scrollbar {
             width: 6px;
         }
@@ -131,31 +67,7 @@
 </head>
 
 <body class="bg-[#020617]">
-    <div class="stars-container" id="stars-root"></div>
-    <div class="nebula nebula-purple"></div>
-    <div class="nebula nebula-blue"></div>
     <div id="root"></div>
-
-    <script>
-        window.addEventListener('DOMContentLoaded', () => {
-            const starsRoot = document.getElementById('stars-root');
-            if (starsRoot) {
-                const starCount = 150;
-                for (let i = 0; i < starCount; i++) {
-                    const star = document.createElement('div');
-                    star.className = 'star';
-                    const sizeNum = Math.random() * 2 + 1;
-                    star.style.width = sizeNum + 'px';
-                    star.style.height = sizeNum + 'px';
-                    star.style.left = Math.random() * 100 + '%';
-                    star.style.top = Math.random() * 100 + '%';
-                    const duration = Math.random() * 3 + 2;
-                    star.style.setProperty('--duration', duration + 's');
-                    starsRoot.appendChild(star);
-                }
-            }
-        });
-    </script>
     <script type="module" src="/index.tsx"></script>
 </body>
 

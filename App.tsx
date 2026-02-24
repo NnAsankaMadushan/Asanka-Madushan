@@ -12,6 +12,7 @@ import Footer from './components/Footer';
 import QuickContact from './components/QuickContact';
 import GeminiChat from './components/GeminiChat';
 import CustomCursor from './components/CustomCursor';
+import InteractiveNetworkBackground from './components/InteractiveNetworkBackground';
 
 const App: React.FC = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -31,7 +32,8 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#020617] text-slate-100 overflow-x-hidden selection:bg-cyan-500/30 md:cursor-none transition-colors duration-500">
+    <div className="relative min-h-screen bg-[#020617] text-slate-100 overflow-x-hidden selection:bg-cyan-500/30 md:cursor-none transition-colors duration-500">
+      <InteractiveNetworkBackground />
       <CustomCursor />
 
       {/* Custom Scroll Progress Bar */}
@@ -50,7 +52,9 @@ const App: React.FC = () => {
         <Contact />
       </main>
 
-      <Footer />
+      <div className="relative z-10">
+        <Footer />
+      </div>
       <QuickContact />
       <GeminiChat />
 
