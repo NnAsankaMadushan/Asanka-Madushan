@@ -16,6 +16,7 @@ import InteractiveNetworkBackground from './components/InteractiveNetworkBackgro
 
 const App: React.FC = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [isChatOpen, setIsChatOpen] = useState(false);
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -55,8 +56,15 @@ const App: React.FC = () => {
       <div className="relative z-10">
         <Footer />
       </div>
-      <QuickContact />
-      <GeminiChat />
+      <QuickContact
+        isChatOpen={isChatOpen}
+        onToggleChat={() => setIsChatOpen((prev) => !prev)}
+      />
+      <GeminiChat
+        isOpen={isChatOpen}
+        onToggle={() => setIsChatOpen((prev) => !prev)}
+        showLauncher={false}
+      />
 
       <AnimatePresence>
         {showScrollTop && (
