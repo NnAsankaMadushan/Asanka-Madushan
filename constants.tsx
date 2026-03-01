@@ -102,6 +102,22 @@ export const PROJECTS: Project[] = [
     ]
   },
   {
+    id: '8',
+    title: 'Reminder Buddy',
+    category: 'Mobile App',
+    description: 'A voice-based smart reminder app that turns natural-language text or speech into structured reminders with offline parsing and calendar-aware workflows.',
+    longDescription: 'Reminder Buddy is a Flutter mobile app that converts natural-language text and voice inputs into structured reminders using an offline rule-based NLP parser for date, time, and location extraction. It uses BLoC for modular state management, Hive for local persistence, and supports full reminder lifecycle flows including create, edit, delete, and reschedule with real-time calendar updates. The app also integrates timezone-aware local notifications and optional Google Calendar sync for upcoming-event fetches and in-app event creation.',
+    image: '/projects/Reminder Buddy/Reminder Buddy.png',
+    tags: ['Flutter', 'BLoC', 'Hive', 'Offline NLP', 'Local Notifications', 'Google Calendar API'],
+    link: '#',
+    stats: [
+      { label: 'Platform', value: 'Mobile' },
+      { label: 'Parsing', value: 'Offline NLP' },
+      { label: 'Sync', value: 'Calendar Ready' }
+    ],
+    video: '/projects/Reminder Buddy/Reminder Buddy.mp4'
+  },
+  {
     id: '4',
     title: 'Money Mate App',
     category: 'Mobile App',
