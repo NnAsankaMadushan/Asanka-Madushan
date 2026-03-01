@@ -5,8 +5,42 @@ import { X, ExternalLink, ArrowRight, Layers } from 'lucide-react';
 import { PROJECTS } from '../constants';
 import { Project } from '../types';
 
+type ProjectFilter = 'mobile' | 'web' | 'all';
+
+const isMobileProject = (project: Project) => project.category === 'Mobile App';
+const isWebProject = (project: Project) => project.category === 'Web Application';
+
+const FILTER_OPTIONS: { label: string; value: ProjectFilter }[] = [
+  { label: 'All Projects', value: 'all' },
+  { label: 'Mobile Projects', value: 'mobile' },
+  { label: 'Web Projects', value: 'web' },
+];
+
 const Projects: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [activeFilter, setActiveFilter] = useState<ProjectFilter>('all');
+
+  const filteredProjects = [...PROJECTS]
+    .filter((project) => {
+      if (activeFilter === 'mobile') {
+        return isMobileProject(project);
+      }
+
+      if (activeFilter === 'web') {
+        return isWebProject(project);
+      }
+
+      return true;
+    })
+    .sort((a, b) => {
+      const getPriority = (project: Project) => {
+        if (isMobileProject(project)) return 0;
+        if (isWebProject(project)) return 1;
+        return 2;
+      };
+
+      return getPriority(a) - getPriority(b);
+    });
 
   return (
     <section id="projects" className="py-20 md:py-32 relative">
@@ -33,8 +67,35 @@ const Projects: React.FC = () => {
           </motion.h3>
         </div>
 
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.15 }}
+          className="flex flex-wrap justify-center gap-3 mb-10 md:mb-14"
+        >
+          {FILTER_OPTIONS.map((option) => {
+            const isActive = activeFilter === option.value;
+
+            return (
+              <button
+                key={option.value}
+                type="button"
+                onClick={() => setActiveFilter(option.value)}
+                className={`px-5 py-3 rounded-full text-[11px] font-bold uppercase tracking-[0.25em] transition-all border ${
+                  isActive
+                    ? 'bg-cyan-500 text-slate-950 border-cyan-300 shadow-[0_0_30px_rgba(34,211,238,0.25)]'
+                    : 'bg-white/5 text-slate-300 border-white/10 hover:border-cyan-400/40 hover:text-cyan-300'
+                }`}
+              >
+                {option.label}
+              </button>
+            );
+          })}
+        </motion.div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
-          {PROJECTS.map((project, idx) => (
+          {filteredProjects.map((project, idx) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 50 }}
