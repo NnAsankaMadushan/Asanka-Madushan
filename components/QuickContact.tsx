@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { MessageCircle, Mail } from 'lucide-react';
 
 const QuickContact: React.FC = () => {
-    const whatsappNumber = "+94787755812";
+    const whatsappNumber = "+94717775812";
     const emailAddress = "nnamadushan@gmail.com";
 
     const actions = [
