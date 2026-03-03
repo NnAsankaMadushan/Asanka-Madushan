@@ -115,6 +115,7 @@ const Projects: React.FC = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-transparent" />
                 <div className="absolute top-6 left-6 z-10 flex gap-2">
                   <span className="whitespace-nowrap rounded-full border border-cyan-300/45 bg-[#04153a] px-3.5 py-1.5 text-[10px] font-black uppercase tracking-[0.28em] text-cyan-100 shadow-[0_10px_24px_rgba(4,21,58,0.45)]">
+
                     {project.category}
                   </span>
                 </div>
