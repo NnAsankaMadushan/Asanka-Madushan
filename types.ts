@@ -3,6 +3,7 @@ export interface Project {
   id: string;
   title: string;
   category: string;
+  platforms?: ('mobile' | 'web')[];
   description: string;
   longDescription: string;
   image: string;

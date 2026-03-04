@@ -57,7 +57,8 @@ export const PROJECTS: Project[] = [
   {
     id: '1',
     title: 'Fuel Management System',
-    category: 'Web Application',
+    category: 'Web & Mobile App',
+    platforms: ['web', 'mobile'],
     description: 'Fuel Management System with four type of users (Vehicle, Station Owner, Operator and Admin).',
     longDescription: 'Fuel Management System with four type of users (Vehicle, Station Owner, Operator and Admin). Showing available fuel quota and creating the QR code for each vehicle. Operator have the access to scan the QR code and check the available fuel quota and give supply whether it\'s possible.',
     image: '/projects/Fuel Management System/fuel.png',

@@ -7,8 +7,21 @@ import { Project } from '../types';
 
 type ProjectFilter = 'mobile' | 'web' | 'all';
 
-const isMobileProject = (project: Project) => project.category === 'Mobile App';
-const isWebProject = (project: Project) => project.category === 'Web Application';
+const hasProjectPlatform = (project: Project, platform: Exclude<ProjectFilter, 'all'>) => {
+  if (project.platforms?.length) {
+    return project.platforms.includes(platform);
+  }
+
+  if (platform === 'mobile') {
+    return project.category === 'Mobile App';
+  }
+
+  return project.category === 'Web Application';
+};
+
+const isMobileProject = (project: Project) => hasProjectPlatform(project, 'mobile');
+const isWebProject = (project: Project) => hasProjectPlatform(project, 'web');
+const isDualPlatformProject = (project: Project) => isMobileProject(project) && isWebProject(project);
 
 const FILTER_OPTIONS: { label: string; value: ProjectFilter }[] = [
   { label: 'All Projects', value: 'all' },
@@ -34,9 +47,10 @@ const Projects: React.FC = () => {
     })
     .sort((a, b) => {
       const getPriority = (project: Project) => {
-        if (isMobileProject(project)) return 0;
-        if (isWebProject(project)) return 1;
-        return 2;
+        if (isDualPlatformProject(project)) return 0;
+        if (isMobileProject(project)) return 1;
+        if (isWebProject(project)) return 2;
+        return 3;
       };
 
       return getPriority(a) - getPriority(b);
