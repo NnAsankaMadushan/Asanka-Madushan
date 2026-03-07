@@ -35,6 +35,7 @@ export const EXPERIENCES: Experience[] = [
     role: 'Videographer and Photographer',
     company: 'REF Media, Faculty of Engineering, University of Ruhuna',
     period: '2021 - 2024',
+    pinnedToBottom: true,
   }
 ];
 

@@ -27,6 +27,7 @@ export interface Experience {
   company: string;
   period: string;
   description?: string;
+  pinnedToBottom?: boolean;
 }
 
 export interface Education {

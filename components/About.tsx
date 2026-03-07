@@ -65,9 +65,19 @@ const getExperienceSortWeight = (period: string) => {
   return endWeight * 10000 + startWeight;
 };
 
-const About: React.FC = () => {
+  const About: React.FC = () => {
   const sortedExperiences = [...EXPERIENCES].sort(
-    (a, b) => getExperienceSortWeight(b.period) - getExperienceSortWeight(a.period)
+    (a, b) => {
+      if (a.pinnedToBottom && !b.pinnedToBottom) {
+        return 1;
+      }
+
+      if (!a.pinnedToBottom && b.pinnedToBottom) {
+        return -1;
+      }
+
+      return getExperienceSortWeight(b.period) - getExperienceSortWeight(a.period);
+    }
   );
 
   return (
