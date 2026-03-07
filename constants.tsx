@@ -46,6 +46,7 @@ export const EDUCATION: Education = {
 export const SPECIALIZATIONS: string[] = [
   "Web Development",
   "Mobile Development",
+  "n8n Automation",
   "UI/UX Designing",
   "Machine Learning",
   "Power Systems Engineering",
@@ -59,15 +60,20 @@ export const PROJECTS: Project[] = [
     title: 'Fuel Management System',
     category: 'Web & Mobile App',
     platforms: ['web', 'mobile'],
-    description: 'Fuel Management System with four type of users (Vehicle, Station Owner, Operator and Admin).',
-    longDescription: 'Fuel Management System with four type of users (Vehicle, Station Owner, Operator and Admin). Showing available fuel quota and creating the QR code for each vehicle. Operator have the access to scan the QR code and check the available fuel quota and give supply whether it\'s possible.',
+    description: 'Fuel quota platform with web and mobile clients, QR-based issuing, and n8n-powered automation for vehicle owners, station owners, operators, and admins.',
+    longDescription: 'Fuel Management System is a multi-role quota management platform delivered through a React web dashboard and an Expo mobile app. Vehicle owners can register vehicles, monitor remaining quota, and access vehicle QR codes, while station owners and operators manage station activity, scan QR codes during fuel issuing, review logs, and track fuel summaries. Admin users can review and approve vehicles and stations. The backend also includes n8n automation workflows for account-created emails, fuel receipt emails after each transaction, and scheduled daily station-owner summary notifications.',
     image: '/projects/Fuel Management System/fuel.png',
-    tags: ['React', 'Node.js', 'MongoDB', 'React Native', 'QR Code'],
-    link: 'https://github.com/Pradeep717/FuelQuotaManagementSystem',
+    tags: ['React', 'Expo', 'Node.js', 'n8n Automation', 'QR Scanning', 'MongoDB', 'Notifications'],
+    link: 'https://github.com/NnAsankaMadushan/Fuel-Management-System-Web.git',
+    repositoryLinks: {
+      web: 'https://github.com/NnAsankaMadushan/Fuel-Management-System-Web.git',
+      mobile: 'https://github.com/NnAsankaMadushan/Fuel-Management-System-Mobile-App.git',
+    },
     stats: [
-      { label: 'Users', value: '4 Types' },
-      { label: 'Features', value: 'QR System' },
-      { label: 'Tech', value: 'MERN Stack' }
+      { label: 'Users', value: '4 Roles' },
+      { label: 'Workflow', value: 'QR Fuel Issue' },
+      { label: 'Clients', value: 'Web + Mobile' },
+      { label: 'Automation', value: 'n8n Emails' }
     ],
     video: '/projects/Fuel Management System/fmq.mp4'
   },
@@ -120,22 +126,6 @@ export const PROJECTS: Project[] = [
     video: '/projects/Reminder Buddy/Reminder Buddy.mp4'
   },
   {
-    id: '4',
-    title: 'Money Mate App',
-    category: 'Mobile App',
-    description: 'This project implements platform with see the bills and online bill paying system.',
-    longDescription: 'This project implements platform with see the bills and online bill paying system. A comprehensive financial management application that helps users track their expenses, manage bills, and make online payments securely.',
-    image: '/projects/Money Mate App/money.png',
-    tags: ['React Native', 'Node.js', 'MongoDB'],
-    link: 'https://github.com/NnAsankaMadushan/MoneyMate-frontend',
-    stats: [
-      { label: 'Platform', value: 'Mobile' },
-      { label: 'Features', value: 'Bill Payment' },
-      { label: 'Type', value: 'FinTech' }
-    ],
-    video: '/projects/Money Mate App/moneymate.mp4'
-  },
-  {
     id: '5',
     title: 'Job Seek App',
     category: 'Mobile App',
@@ -150,6 +140,22 @@ export const PROJECTS: Project[] = [
       { label: 'Type', value: 'Employment' }
     ],
     video: '/projects/Job Seek App/Quickhire.mp4'
+  },
+  {
+    id: '4',
+    title: 'Money Mate App',
+    category: 'Mobile App',
+    description: 'This project implements platform with see the bills and online bill paying system.',
+    longDescription: 'This project implements platform with see the bills and online bill paying system. A comprehensive financial management application that helps users track their expenses, manage bills, and make online payments securely.',
+    image: '/projects/Money Mate App/money.png',
+    tags: ['React Native', 'Node.js', 'MongoDB'],
+    link: 'https://github.com/NnAsankaMadushan/MoneyMate-frontend',
+    stats: [
+      { label: 'Platform', value: 'Mobile' },
+      { label: 'Features', value: 'Bill Payment' },
+      { label: 'Type', value: 'FinTech' }
+    ],
+    video: '/projects/Money Mate App/moneymate.mp4'
   },
   {
     id: '6',

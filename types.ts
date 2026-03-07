@@ -1,14 +1,17 @@
 
+export type ProjectPlatform = 'mobile' | 'web';
+
 export interface Project {
   id: string;
   title: string;
   category: string;
-  platforms?: ('mobile' | 'web')[];
+  platforms?: ProjectPlatform[];
   description: string;
   longDescription: string;
   image: string;
   tags: string[];
   link: string;
+  repositoryLinks?: Partial<Record<ProjectPlatform, string>>;
   stats: { label: string; value: string }[];
   video?: string;
 }

@@ -23,6 +23,23 @@ const isMobileProject = (project: Project) => hasProjectPlatform(project, 'mobil
 const isWebProject = (project: Project) => hasProjectPlatform(project, 'web');
 const isDualPlatformProject = (project: Project) => isMobileProject(project) && isWebProject(project);
 
+const getProjectRepositoryLink = (project: Project, activeFilter: ProjectFilter) => {
+  const preferredPlatform = activeFilter === 'mobile' ? 'mobile' : 'web';
+  return project.repositoryLinks?.[preferredPlatform] || project.link;
+};
+
+const getProjectRepositoryLabel = (project: Project, activeFilter: ProjectFilter) => {
+  if (activeFilter === 'mobile' && project.repositoryLinks?.mobile) {
+    return 'Mobile Git Repository';
+  }
+
+  if (project.repositoryLinks?.web) {
+    return 'Web Git Repository';
+  }
+
+  return 'Git Repository';
+};
+
 const FILTER_OPTIONS: { label: string; value: ProjectFilter }[] = [
   { label: 'All Projects', value: 'all' },
   { label: 'Mobile Projects', value: 'mobile' },
@@ -55,6 +72,13 @@ const Projects: React.FC = () => {
 
       return getPriority(a) - getPriority(b);
     });
+
+  const selectedProjectRepositoryLink = selectedProject
+    ? getProjectRepositoryLink(selectedProject, activeFilter)
+    : '#';
+  const selectedProjectRepositoryLabel = selectedProject
+    ? getProjectRepositoryLabel(selectedProject, activeFilter)
+    : 'Git Repository';
 
   return (
     <section id="projects" className="py-20 md:py-32 relative">
@@ -232,11 +256,11 @@ const Projects: React.FC = () => {
                       ))}
                     </div>
                     <a
-                      href={selectedProject.link}
+                      href={selectedProjectRepositoryLink}
                       className="w-full py-4 bg-cyan-600 text-white text-center font-bold rounded-xl flex items-center justify-center gap-3 hover:bg-cyan-500 transition-all shadow-xl shadow-cyan-600/20 uppercase tracking-widest text-xs"
                     >
                       <ExternalLink size={18} />
-                      Git Repository
+                      {selectedProjectRepositoryLabel}
                     </a>
                   </div>
                 </div>
