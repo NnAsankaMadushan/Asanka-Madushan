@@ -60,10 +60,10 @@ export const PROJECTS: Project[] = [
     title: 'Fuel Management System',
     category: 'Web & Mobile App',
     platforms: ['web', 'mobile'],
-    description: 'Fuel quota platform with web and mobile clients, QR-based issuing, and n8n-powered automation for vehicle owners, station owners, operators, and admins.',
-    longDescription: 'Fuel Management System is a multi-role quota management platform delivered through a React web dashboard and an Expo mobile app. Vehicle owners can register vehicles, monitor remaining quota, and access vehicle QR codes, while station owners and operators manage station activity, scan QR codes during fuel issuing, review logs, and track fuel summaries. Admin users can review and approve vehicles and stations. The backend also includes n8n automation workflows for account-created emails, fuel receipt emails after each transaction, and scheduled daily station-owner summary notifications.',
+    description: 'Fuel quota platform with web and mobile clients, email OTP onboarding, QR-based issuing, and n8n-powered automation for vehicle owners, station owners, operators, and admins.',
+    longDescription: 'Fuel Management System is a multi-role quota management platform delivered through a React web dashboard and an Expo mobile app. Vehicle owners can register vehicles, monitor remaining quota, and access vehicle QR codes, while station owners and operators manage station activity, scan QR codes during fuel issuing, review logs, and track fuel summaries. The platform also includes secure email OTP verification during account onboarding and role-based access across web and mobile clients. Admin users can review and approve vehicles and stations. The backend also includes n8n automation workflows for account-created emails, fuel receipt emails after each transaction, and scheduled daily station-owner summary notifications.',
     image: '/projects/Fuel Management System/fuel.png',
-    tags: ['React', 'Expo', 'Node.js', 'n8n Automation', 'QR Scanning', 'MongoDB', 'Notifications'],
+    tags: ['React', 'Expo', 'Node.js', 'Email OTP', 'n8n Automation', 'QR Scanning', 'MongoDB', 'Notifications'],
     link: 'https://github.com/NnAsankaMadushan/Fuel-Management-System-Web.git',
     repositoryLinks: {
       web: 'https://github.com/NnAsankaMadushan/Fuel-Management-System-Web.git',
