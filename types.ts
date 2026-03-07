@@ -14,6 +14,7 @@ export interface Project {
   repositoryLinks?: Partial<Record<ProjectPlatform, string>>;
   stats: { label: string; value: string }[];
   video?: string;
+  embedUrl?: string;
 }
 
 export interface Skill {

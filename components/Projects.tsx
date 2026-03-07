@@ -212,7 +212,16 @@ const Projects: React.FC = () => {
               </div>
 
               <div className="w-full aspect-video shrink-0 bg-black/40 flex items-center justify-center overflow-hidden border-y border-white/5">
-                {selectedProject.video ? (
+                {selectedProject.embedUrl ? (
+                  <iframe
+                    src={selectedProject.embedUrl}
+                    title={selectedProject.title}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                    allowFullScreen
+                    className="w-full h-full"
+                  />
+                ) : selectedProject.video ? (
                   <video
                     src={selectedProject.video}
                     controls

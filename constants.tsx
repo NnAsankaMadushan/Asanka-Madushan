@@ -108,7 +108,8 @@ export const PROJECTS: Project[] = [
       { label: 'Security', value: 'Zero Trust' },
       { label: 'Detection', value: 'Real-time' },
       { label: 'ML Model', value: 'Autoencoder' }
-    ]
+    ],
+    embedUrl: 'https://www.youtube.com/embed/jHwguD8HNXw?autoplay=1&mute=1&rel=0'
   },
   {
     id: '8',
