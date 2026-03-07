@@ -19,7 +19,57 @@ const itemVariants = {
   visible: { y: 0, opacity: 1, filter: 'blur(0px)', transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } },
 };
 
+const MONTH_INDEX: Record<string, number> = {
+  jan: 0,
+  feb: 1,
+  mar: 2,
+  apr: 3,
+  may: 4,
+  jun: 5,
+  jul: 6,
+  aug: 7,
+  sep: 8,
+  oct: 9,
+  nov: 10,
+  dec: 11,
+};
+
+const getPeriodWeight = (periodPart: string) => {
+  const normalized = periodPart.trim().toLowerCase();
+
+  if (!normalized) {
+    return 0;
+  }
+
+  if (normalized.includes('present')) {
+    return Number.MAX_SAFE_INTEGER;
+  }
+
+  const yearMatch = normalized.match(/\d{4}/);
+  if (!yearMatch) {
+    return 0;
+  }
+
+  const year = Number(yearMatch[0]);
+  const monthKey = Object.keys(MONTH_INDEX).find((month) => normalized.includes(month));
+  const month = monthKey ? MONTH_INDEX[monthKey] : 11;
+
+  return year * 100 + month;
+};
+
+const getExperienceSortWeight = (period: string) => {
+  const [startPart = '', endPart = ''] = period.split('-').map((part) => part.trim());
+  const endWeight = getPeriodWeight(endPart || startPart);
+  const startWeight = getPeriodWeight(startPart);
+
+  return endWeight * 10000 + startWeight;
+};
+
 const About: React.FC = () => {
+  const sortedExperiences = [...EXPERIENCES].sort(
+    (a, b) => getExperienceSortWeight(b.period) - getExperienceSortWeight(a.period)
+  );
+
   return (
     <section id="about" className="py-20 md:py-40 relative">
       <div className="container mx-auto px-4 sm:px-6 relative z-10">
@@ -94,7 +144,7 @@ const About: React.FC = () => {
 
             <div className="space-y-8 md:space-y-12 relative">
               <div className="absolute left-[7px] top-2 bottom-2 w-[1px] bg-white/10" />
-              {EXPERIENCES.map((exp, idx) => (
+              {sortedExperiences.map((exp, idx) => (
                 <div key={idx} className="relative pl-8 md:pl-10 group/item">
                   <div className="absolute left-0 top-[8px] w-[15px] h-[15px] rounded-full bg-cyan-400 border-4 border-[#020617] z-10 transition-transform group-hover/item:scale-125" />
                   <h4 className="font-bold text-white text-base md:text-lg mb-1">{exp.role}</h4>
