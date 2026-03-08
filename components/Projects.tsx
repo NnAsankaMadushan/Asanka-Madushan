@@ -142,7 +142,7 @@ const Projects: React.FC = () => {
               transition={{ delay: idx * 0.1 }}
               whileHover={{ y: -15 }}
               onClick={() => setSelectedProject(project)}
-              className="group cursor-pointer backdrop-blur-md bg-white/5 rounded-[2rem] md:rounded-[3rem] overflow-hidden border border-white/10 hover:border-cyan-400/50 transition-all duration-500"
+              className="group h-full cursor-pointer backdrop-blur-md bg-white/5 rounded-[2rem] md:rounded-[3rem] overflow-hidden border border-white/10 hover:border-cyan-400/50 transition-all duration-500 flex flex-col"
             >
               <div className="relative h-64 md:h-72 overflow-hidden">
                 <img
@@ -158,9 +158,9 @@ const Projects: React.FC = () => {
                   </span>
                 </div>
               </div>
-              <div className="p-6 md:p-10">
+              <div className="p-6 md:p-10 flex flex-1 flex-col">
                 <h4 className="text-2xl md:text-3xl font-bold mb-4 text-white group-hover:text-cyan-400 transition-colors">{project.title}</h4>
-                <p className="text-slate-400 mb-6 md:mb-8 text-sm leading-relaxed line-clamp-2">{project.description}</p>
+                <p className="text-slate-400 mb-6 md:mb-8 text-sm leading-relaxed">{project.description}</p>
                 <div className="flex flex-wrap gap-2 mb-6 md:mb-8">
                   {project.tags.slice(0, 5).map(tag => (
                     <span key={tag} className="text-[10px] px-3 py-1.5 bg-white/5 border border-white/10 text-slate-500 rounded-lg font-bold uppercase tracking-tighter group-hover:border-cyan-400/20 group-hover:text-slate-300 transition-all">
@@ -168,7 +168,7 @@ const Projects: React.FC = () => {
                     </span>
                   ))}
                 </div>
-                <div className="flex items-center justify-between">
+                <div className="mt-auto flex items-center justify-between">
                   <div className="flex items-center text-cyan-400 font-bold text-xs uppercase tracking-[0.2em]">
                     <span>Analysis</span>
                     <ArrowRight size={14} className="ml-2 group-hover:translate-x-1 transition-transform" />

@@ -1,22 +1,64 @@
-
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Send, Github, Linkedin, Twitter, Mail, MapPin, Phone, Loader2 } from 'lucide-react';
+
+const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
+const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
 
 const Contact: React.FC = () => {
   const [formState, setFormState] = useState({ name: '', email: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSent, setIsSent] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!WEB3FORMS_ACCESS_KEY) {
+      setIsSent(false);
+      setErrorMessage('Contact form is not configured yet. Add VITE_WEB3FORMS_ACCESS_KEY to your .env.local file.');
+      return;
+    }
+
     setIsSubmitting(true);
-    setTimeout(() => {
+    setIsSent(false);
+    setErrorMessage('');
+
+    try {
+      const response = await fetch(WEB3FORMS_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: `New portfolio contact from ${formState.name}`,
+          from_name: 'Portfolio Contact Form',
+          replyto: formState.email,
+          name: formState.name,
+          email: formState.email,
+          message: formState.message,
+          botcheck: '',
+        }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || 'Unable to send your message right now.');
+      }
+
       setIsSubmitting(false);
       setIsSent(true);
-      setTimeout(() => setIsSent(false), 3000);
       setFormState({ name: '', email: '', message: '' });
-    }, 1500);
+      setTimeout(() => setIsSent(false), 3000);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Unable to send your message right now.';
+      setIsSubmitting(false);
+      setIsSent(false);
+      setErrorMessage(message);
+    }
   };
 
   return (
@@ -139,7 +181,7 @@ const Contact: React.FC = () => {
                     <span>Sending...</span>
                   </div>
                 ) : isSent ? (
-                  <>Sent Successfully! ✅</>
+                  <>Sent Successfully!</>
                 ) : (
                   <>
                     <span>Send Message</span>
@@ -147,6 +189,14 @@ const Contact: React.FC = () => {
                   </>
                 )}
               </motion.button>
+              {(isSent || errorMessage) && (
+                <p
+                  className={`mt-4 text-sm ${isSent ? 'text-emerald-400' : 'text-rose-400'}`}
+                  aria-live="polite"
+                >
+                  {isSent ? 'Your message was sent successfully.' : errorMessage}
+                </p>
+              )}
             </motion.form>
           </div>
         </div>
