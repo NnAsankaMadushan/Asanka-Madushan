@@ -51,6 +51,12 @@ const FILTER_OPTIONS: { label: string; value: ProjectFilter }[] = [
 const Projects: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [activeFilter, setActiveFilter] = useState<ProjectFilter>('all');
+  const [showAll, setShowAll] = useState(false);
+
+  const handleFilterChange = (filter: ProjectFilter) => {
+    setActiveFilter(filter);
+    setShowAll(false);
+  };
 
   const filteredProjects = [...PROJECTS]
     .filter((project) => {
@@ -134,12 +140,11 @@ const Projects: React.FC = () => {
               <button
                 key={option.value}
                 type="button"
-                onClick={() => setActiveFilter(option.value)}
-                className={`px-5 py-3 rounded-full text-[11px] font-bold uppercase tracking-[0.25em] transition-all border ${
-                  isActive
+                onClick={() => handleFilterChange(option.value)}
+                className={`px-5 py-3 rounded-full text-[11px] font-bold uppercase tracking-[0.25em] transition-all border ${isActive
                     ? 'bg-cyan-500 text-slate-950 border-cyan-300 shadow-[0_0_30px_rgba(34,211,238,0.25)]'
                     : 'bg-white/5 text-slate-300 border-white/10 hover:border-cyan-400/40 hover:text-cyan-300'
-                }`}
+                  }`}
               >
                 {option.label}
               </button>
@@ -147,8 +152,8 @@ const Projects: React.FC = () => {
           })}
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
-          {filteredProjects.map((project, idx) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 items-stretch">
+          {filteredProjects.slice(0, showAll ? undefined : 6).map((project, idx) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 50 }}
@@ -194,6 +199,22 @@ const Projects: React.FC = () => {
             </motion.div>
           ))}
         </div>
+
+        {!showAll && filteredProjects.length > 6 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mt-16 text-center"
+          >
+            <button
+              onClick={() => setShowAll(true)}
+              className="inline-flex items-center gap-3 px-10 py-5 bg-white/5 border border-white/10 hover:border-cyan-400/50 hover:bg-cyan-500/10 text-white rounded-full font-bold uppercase tracking-[0.3em] text-[11px] transition-all transform hover:scale-105 active:scale-95 group shadow-[0_0_30px_rgba(34,211,238,0.05)]"
+            >
+              <span>More Projects</span>
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform text-cyan-400" />
+            </button>
+          </motion.div>
+        )}
       </div>
 
       {/* Futuristic Project Modal */}
