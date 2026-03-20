@@ -98,7 +98,6 @@ export const PROJECTS: Project[] = [
     id: '3',
     title: 'Enhanced IoT Security through Zero Trust Architecture Implementation',
     category: 'IoT Security',
-    platforms: ['web'],
     description: 'This project implements a cutting-edge Zero Trust Architecture (ZTA) to ensure that no device is trusted by default, enhancing IoT network security with real-time, dynamic controls.',
     longDescription: 'This project implements a cutting-edge Zero Trust Architecture (ZTA) to ensure that no device is trusted by default, enhancing IoT network security with real-time, dynamic controls. Machine Learning Model Development: Trained and implemented an autoencoder-based anomaly detection model to identify unusual network patterns. Built a React-based interface to display real-time data on connected devices, trust scores, and security statuses.',
     image: '/projects/Enhanced IoT Security through Zero Trust Architecture Implementation/anomaly.png',
@@ -158,6 +157,22 @@ export const PROJECTS: Project[] = [
       { label: 'Type', value: 'FinTech' }
     ],
     video: '/projects/Money Mate App/moneymate.mp4'
+  },
+  {
+    id: '9',
+    title: 'FHSS Uni Planner',
+    category: 'UI/UX Design',
+    description: 'A comprehensive university course planning and management interface designed for FHSS students.',
+    longDescription: 'FHSS Uni Planner is a sophisticated UI/UX design project focused on streamlining university life. The interface includes features for course scheduling, progress tracking, and academic planning, all wrapped in a modern, intuitive design that prioritizes user experience for FHSS students.',
+    image: '/projects/FHSS Uni Planner/FHSS.png',
+    tags: ['Figma', 'UI/UX Design', 'University Tools'],
+    link: '#',
+    stats: [
+      { label: 'Tool', value: 'Figma' },
+      { label: 'Type', value: 'Mobile Design' },
+      { label: 'Market', value: 'Education' }
+    ],
+    video: '/projects/FHSS Uni Planner/FHHS.mp4'
   },
   {
     id: '6',

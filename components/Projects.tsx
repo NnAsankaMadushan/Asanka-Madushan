@@ -5,9 +5,9 @@ import { X, ExternalLink, ArrowRight, Layers } from 'lucide-react';
 import { PROJECTS } from '../constants';
 import { Project } from '../types';
 
-type ProjectFilter = 'mobile' | 'web' | 'all';
+type ProjectFilter = 'mobile' | 'web' | 'ui/ux' | 'ai/ml' | 'all';
 
-const hasProjectPlatform = (project: Project, platform: Exclude<ProjectFilter, 'all'>) => {
+const hasProjectPlatform = (project: Project, platform: 'mobile' | 'web') => {
   if (project.platforms?.length) {
     return project.platforms.includes(platform);
   }
@@ -44,6 +44,8 @@ const FILTER_OPTIONS: { label: string; value: ProjectFilter }[] = [
   { label: 'All Projects', value: 'all' },
   { label: 'Mobile Projects', value: 'mobile' },
   { label: 'Web Projects', value: 'web' },
+  { label: 'AI/ML Projects', value: 'ai/ml' },
+  { label: 'UI/UX Design', value: 'ui/ux' },
 ];
 
 const Projects: React.FC = () => {
@@ -58,6 +60,19 @@ const Projects: React.FC = () => {
 
       if (activeFilter === 'web') {
         return isWebProject(project);
+      }
+
+      if (activeFilter === 'ui/ux') {
+        return project.category === 'UI/UX Design';
+      }
+
+      if (activeFilter === 'ai/ml') {
+        return (
+          ['IoT Security', 'Machine Learning'].includes(project.category) ||
+          project.tags.some((tag) =>
+            ['Machine Learning', 'AI', 'NLP', 'Computer Vision'].some((keyword) => tag.includes(keyword))
+          )
+        );
       }
 
       return true;
