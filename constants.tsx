@@ -210,11 +210,32 @@ export const PROJECTS: Project[] = [
 
 export const CERTIFICATIONS: Certification[] = [
   {
+    id: 'c8',
+    title: 'Build Generative AI Agents with Vertex AI and Flutter',
+    issuer: 'Coursera',
+    date: '2026',
+    image: '/certificates/Build Generative AI Agents with Vertex AI and Flutter.png',
+    link: 'https://coursera.org/share/5b56492e20f3a602785bc2770a27c783',
+    categories: ['mobile', 'ai/ml'],
+    description: 'Hands-on certificate focused on combining Flutter app development with Vertex AI-powered generative AI agents, including practical integration patterns and prompt-driven application workflows.'
+  },
+  {
+    id: 'c9',
+    title: 'Getting started with Flutter Development',
+    issuer: 'Coursera',
+    date: '2026',
+    image: '/certificates/Getting started with Flutter Development.png',
+    link: 'https://coursera.org/share/c7230d2a948928ece3bc6cfb4e079399',
+    categories: ['mobile'],
+    description: 'Introductory Flutter certificate covering project setup, core widgets, layouts, and the fundamentals of building cross-platform mobile applications.'
+  },
+  {
     id: 'c1',
     title: 'Python for Data Science, AI & Development',
     issuer: 'IBM',
     date: '2023',
     image: '/certificates/8.png',
+    categories: ['ai/ml'],
     description: 'This certification validates proficiency in Python programming for data science, artificial intelligence, and development. Covers data structures, libraries like NumPy and Pandas, and practical applications in AI and data analysis.'
   },
   {
@@ -223,6 +244,7 @@ export const CERTIFICATIONS: Certification[] = [
     issuer: 'KodeKloud',
     date: '2023',
     image: '/certificates/9.png',
+    categories: ['devops'],
     description: 'Certification demonstrating expertise in using Lens, the Kubernetes IDE. Covers cluster management, resource monitoring, and efficient Kubernetes workflow optimization for container orchestration.'
   },
   {
@@ -231,6 +253,7 @@ export const CERTIFICATIONS: Certification[] = [
     issuer: 'University of Moratuwa',
     date: '2022',
     image: '/certificates/7.png',
+    categories: ['web development'],
     description: 'Comprehensive introduction to web design principles, covering HTML, CSS, responsive design, and modern web development best practices. Focuses on creating user-friendly and visually appealing websites.'
   },
   {
@@ -239,6 +262,7 @@ export const CERTIFICATIONS: Certification[] = [
     issuer: 'Coursera',
     date: '2022',
     image: '/certificates/4.png',
+    categories: ['web development'],
     description: 'Foundational course covering HTML5 fundamentals, semantic markup, document structure, and best practices for creating well-structured web pages. Essential for web development beginners.'
   },
   {
@@ -247,6 +271,7 @@ export const CERTIFICATIONS: Certification[] = [
     issuer: 'Coursera',
     date: '2022',
     image: '/certificates/3.png',
+    categories: ['web development'],
     description: 'Introduction to server-side programming, databases, APIs, and back-end frameworks. Covers the fundamentals of building robust and scalable web applications from the server perspective.'
   },
   {
@@ -255,6 +280,7 @@ export const CERTIFICATIONS: Certification[] = [
     issuer: 'Coursera',
     date: '2022',
     image: '/certificates/5.png',
+    categories: ['web development'],
     description: 'Comprehensive overview of front-end development technologies including HTML, CSS, JavaScript, and modern frameworks. Focuses on creating interactive and responsive user interfaces.'
   },
   {
@@ -263,6 +289,7 @@ export const CERTIFICATIONS: Certification[] = [
     issuer: 'Coursera',
     date: '2023',
     image: '/certificates/6.png',
+    categories: ['ai/ml'],
     description: 'Advanced machine learning course covering supervised learning algorithms, regression models, classification techniques, and practical applications. Includes hands-on projects with real-world datasets.'
   }
 ];

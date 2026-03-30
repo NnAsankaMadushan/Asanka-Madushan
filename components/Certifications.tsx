@@ -1,12 +1,39 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Award, Calendar, Compass } from 'lucide-react';
+import { X, Award, Calendar, Compass, ExternalLink, ArrowRight } from 'lucide-react';
 import { CERTIFICATIONS } from '../constants';
 import { Certification } from '../types';
 
+type CertificationFilter = 'all' | 'mobile' | 'ai/ml' | 'web development' | 'devops';
+
+const FILTER_OPTIONS: { label: string; value: CertificationFilter }[] = [
+  { label: 'All Certificates', value: 'all' },
+  { label: 'Mobile', value: 'mobile' },
+  { label: 'AI/ML', value: 'ai/ml' },
+  { label: 'Web Development', value: 'web development' },
+  { label: 'DevOps', value: 'devops' },
+];
+
 const Certifications: React.FC = () => {
   const [selectedCert, setSelectedCert] = useState<Certification | null>(null);
+  const [activeFilter, setActiveFilter] = useState<CertificationFilter>('all');
+  const [showAll, setShowAll] = useState(false);
+
+  const handleFilterChange = (filter: CertificationFilter) => {
+    setActiveFilter(filter);
+    setShowAll(false);
+  };
+
+  const filteredCertifications = CERTIFICATIONS.filter((cert) => {
+    if (activeFilter === 'all') {
+      return true;
+    }
+
+    return cert.categories.includes(activeFilter);
+  });
+
+  const visibleCertifications = showAll ? filteredCertifications : filteredCertifications.slice(0, 6);
 
   return (
     <section id="certifications" className="py-20 md:py-32 relative">
@@ -24,8 +51,34 @@ const Certifications: React.FC = () => {
           </p>
         </div>
 
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.15 }}
+          className="flex flex-wrap justify-center gap-3 mb-10 md:mb-14"
+        >
+          {FILTER_OPTIONS.map((option) => {
+            const isActive = activeFilter === option.value;
+
+            return (
+              <button
+                key={option.value}
+                type="button"
+                onClick={() => handleFilterChange(option.value)}
+                className={`px-5 py-3 rounded-full text-[11px] font-bold uppercase tracking-[0.25em] transition-all border ${isActive
+                  ? 'bg-purple-500 text-slate-950 border-purple-300 shadow-[0_0_30px_rgba(168,85,247,0.25)]'
+                  : 'bg-white/5 text-slate-300 border-white/10 hover:border-purple-400/40 hover:text-purple-300'
+                  }`}
+              >
+                {option.label}
+              </button>
+            );
+          })}
+        </motion.div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
-          {CERTIFICATIONS.map((cert, idx) => (
+          {visibleCertifications.map((cert, idx) => (
             <motion.div
               key={cert.id}
               initial={{ opacity: 0, scale: 0.95 }}
@@ -55,6 +108,22 @@ const Certifications: React.FC = () => {
             </motion.div>
           ))}
         </div>
+
+        {!showAll && filteredCertifications.length > 6 && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mt-16 text-center"
+          >
+            <button
+              onClick={() => setShowAll(true)}
+              className="inline-flex items-center gap-3 px-10 py-5 bg-white/5 border border-white/10 hover:border-purple-400/50 hover:bg-purple-500/10 text-white rounded-full font-bold uppercase tracking-[0.3em] text-[11px] transition-all transform hover:scale-105 active:scale-95 group shadow-[0_0_30px_rgba(168,85,247,0.05)]"
+            >
+              <span>More Certifications</span>
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform text-purple-400" />
+            </button>
+          </motion.div>
+        )}
       </div>
 
       {/* Holographic Detail Modal */}
@@ -104,7 +173,18 @@ const Certifications: React.FC = () => {
                   "{selectedCert.description}"
                 </p>
 
-                <div className="flex gap-6">
+                <div className="flex flex-col md:flex-row gap-4">
+                  {selectedCert.link && (
+                    <a
+                      href={selectedCert.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex-1 px-8 py-4 md:px-12 md:py-6 bg-white/5 text-white font-bold rounded-[1.5rem] md:rounded-[2rem] hover:bg-white/10 transition-all border border-white/10 uppercase tracking-widest text-xs md:text-sm inline-flex items-center justify-center gap-3"
+                    >
+                      <ExternalLink size={16} />
+                      View Credential
+                    </a>
+                  )}
                   <button
                     onClick={() => setSelectedCert(null)}
                     className="flex-1 px-8 py-4 md:px-12 md:py-6 bg-purple-600 text-white font-bold rounded-[1.5rem] md:rounded-[2rem] hover:bg-purple-500 transition-all shadow-xl shadow-purple-600/20 uppercase tracking-widest text-xs md:text-sm"

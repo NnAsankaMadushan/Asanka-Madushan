@@ -44,4 +44,6 @@ export interface Certification {
   date: string;
   image: string;
   description: string;
+  link?: string;
+  categories: ('mobile' | 'ai/ml' | 'web development' | 'devops')[];
 }
