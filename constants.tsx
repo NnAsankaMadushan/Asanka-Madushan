@@ -63,7 +63,7 @@ export const PROJECTS: Project[] = [
     platforms: ['mobile'],
     description: 'A cutting-edge recruitment marketplace with 256-bit AES-GCM encrypted messaging, multi-role recruitment workflows, and biometric security integration.',
     longDescription: 'Job Seeker - Chatting App is a comprehensive recruitment ecosystem built with Flutter and Firebase. It features a high-security end-to-end encrypted messaging system using AES-GCM 256-bit encryption for private communication between recruiters and candidates. The platform facilitates complex workflows including job posting, application tracking, and an integrated work request system. Security is at its core with biometric app locking (Face ID/Fingerprint), email OTP verification via Brevo, and secure app-wide credential management. The app also integrates Cloudinary for optimized media handling and Google Maps for real-time location-based job discovery. It offers a premium user experience with multi-language support (English, Sinhala, Tamil), dynamic light/dark mode switching, and a modern glassmorphism UI.',
-    image: '/projects/Job Seek App/Job.png',
+    image: '/projects/job-seek-app/job.png',
     tags: ['Flutter', 'Firebase', 'AES-256 E2EE', 'Cloudinary', 'Brevo OTP', 'Biometric Auth', 'Localization', 'Dark Mode'],
     link: 'https://github.com/NnAsankaMadushan/Job-Seeker-App.git',
     stats: [
@@ -71,7 +71,7 @@ export const PROJECTS: Project[] = [
       { label: 'Languages', value: '3 (EN/SI/TA)' },
       { label: 'Auth', value: 'Biometric + Social' }
     ],
-    video: '/projects/Job Seek App/Job Seeker.mp4'
+    video: '/projects/job-seek-app/job-seeker.mp4'
   },
   {
     id: '1',
@@ -80,7 +80,7 @@ export const PROJECTS: Project[] = [
     platforms: ['web', 'mobile'],
     description: 'Fuel quota platform with web and mobile clients, email OTP onboarding, QR-based issuing, and n8n-powered automation for vehicle owners, station owners, operators, and admins.',
     longDescription: 'Fuel Management System is a multi-role quota management platform delivered through a React web dashboard and an Expo mobile app. Vehicle owners can register vehicles, monitor remaining quota, and access vehicle QR codes, while station owners and operators manage station activity, scan QR codes during fuel issuing, review logs, and track fuel summaries. The platform also includes secure email OTP verification during account onboarding and role-based access across web and mobile clients. Admin users can review and approve vehicles and stations. The backend also includes n8n automation workflows for account-created emails, fuel receipt emails after each transaction, and scheduled daily station-owner summary notifications.',
-    image: '/projects/Fuel Management System/fuel.png',
+    image: '/projects/fuel-management-system/fuel.png',
     tags: ['React', 'React Native', 'Expo', 'Node.js', 'Email OTP', 'n8n Automation', 'QR Scanning', 'MongoDB', 'Notifications'],
     link: 'https://github.com/NnAsankaMadushan/Fuel-Management-System-Web.git',
     repositoryLinks: {
@@ -93,7 +93,7 @@ export const PROJECTS: Project[] = [
       { label: 'Clients', value: 'Web + Mobile' },
       { label: 'Automation', value: 'n8n Emails' }
     ],
-    video: '/projects/Fuel Management System/fmq.mp4'
+    video: '/projects/fuel-management-system/fmq.mp4'
   },
   {
     id: '2',
@@ -101,7 +101,7 @@ export const PROJECTS: Project[] = [
     category: 'Web Application',
     description: 'This project aims to create a job bank website that connects three primary user roles: companies, students, and lecturers.',
     longDescription: 'This software project aims to create a job bank website that connects three primary user roles: companies, students, and lecturers. Companies will be able to post job opportunities, students can apply for those jobs, and lecturers can provide recommendations for students. Built using React, Node.js, and PostgreSQL with modern authentication and authorization mechanisms.',
-    image: '/projects/Job Portal System/job.png',
+    image: '/projects/job-portal-system/job.png',
     tags: ['React', 'Node.js', 'PostgreSQL', 'JWT'],
     link: 'https://github.com/Malkith99/Job-Portal-System-FRONTEND.git',
     stats: [
@@ -109,7 +109,7 @@ export const PROJECTS: Project[] = [
       { label: 'Features', value: 'Job Matching' },
       { label: 'Security', value: 'JWT Auth' }
     ],
-    video: '/projects/Job Portal System/job.mp4'
+    video: '/projects/job-portal-system/job.mp4'
   },
   {
     id: '3',
@@ -117,7 +117,7 @@ export const PROJECTS: Project[] = [
     category: 'IoT Security',
     description: 'This project implements a cutting-edge Zero Trust Architecture (ZTA) to ensure that no device is trusted by default, enhancing IoT network security with real-time, dynamic controls.',
     longDescription: 'This project implements a cutting-edge Zero Trust Architecture (ZTA) to ensure that no device is trusted by default, enhancing IoT network security with real-time, dynamic controls. Machine Learning Model Development: Trained and implemented an autoencoder-based anomaly detection model to identify unusual network patterns. Built a React-based interface to display real-time data on connected devices, trust scores, and security statuses.',
-    image: '/projects/Enhanced IoT Security through Zero Trust Architecture Implementation/anomaly.png',
+    image: '/projects/enhanced-iot-security-through-zero-trust-architecture-implementation/anomaly.png',
     tags: ['Python', 'Machine Learning', 'React', 'Flask', 'Raspberry Pi'],
     link: 'https://github.com/NnAsankaMadushan/Anomaly-Detection',
     stats: [
@@ -133,7 +133,7 @@ export const PROJECTS: Project[] = [
     category: 'Mobile App',
     description: 'A voice-based smart reminder app that turns natural-language text or speech into structured reminders with offline parsing and calendar-aware workflows.',
     longDescription: 'Reminder Buddy is a Flutter mobile app that converts natural-language text and voice inputs into structured reminders using an offline rule-based NLP parser for date, time, and location extraction. It uses BLoC for modular state management, Hive for local persistence, and supports full reminder lifecycle flows including create, edit, delete, and reschedule with real-time calendar updates. The app also integrates timezone-aware local notifications and optional Google Calendar sync for upcoming-event fetches and in-app event creation.',
-    image: '/projects/Reminder Buddy/Reminder Buddy.png',
+    image: '/projects/reminder-buddy/reminder-buddy.png',
     tags: ['Flutter', 'BLoC', 'Hive', 'Offline NLP', 'Local Notifications', 'Google Calendar API'],
     link: '#',
     stats: [
@@ -141,7 +141,7 @@ export const PROJECTS: Project[] = [
       { label: 'Parsing', value: 'Offline NLP' },
       { label: 'Sync', value: 'Calendar Ready' }
     ],
-    video: '/projects/Reminder Buddy/Reminder Buddy.mp4'
+    video: '/projects/reminder-buddy/reminder-buddy.mp4'
   },
   {
     id: '4',
@@ -149,7 +149,7 @@ export const PROJECTS: Project[] = [
     category: 'Mobile App',
     description: 'This project implements platform with see the bills and online bill paying system.',
     longDescription: 'This project implements platform with see the bills and online bill paying system. A comprehensive financial management application that helps users track their expenses, manage bills, and make online payments securely.',
-    image: '/projects/Money Mate App/money.png',
+    image: '/projects/money-mate-app/money.png',
     tags: ['React Native', 'Node.js', 'MongoDB'],
     link: 'https://github.com/NnAsankaMadushan/MoneyMate-frontend',
     stats: [
@@ -157,7 +157,7 @@ export const PROJECTS: Project[] = [
       { label: 'Features', value: 'Bill Payment' },
       { label: 'Type', value: 'FinTech' }
     ],
-    video: '/projects/Money Mate App/moneymate.mp4'
+    video: '/projects/money-mate-app/moneymate.mp4'
   },
   {
     id: '9',
@@ -165,7 +165,7 @@ export const PROJECTS: Project[] = [
     category: 'UI/UX Design',
     description: 'A comprehensive university course planning and management interface designed for FHSS students.',
     longDescription: 'FHSS Uni Planner is a sophisticated UI/UX design project focused on streamlining university life. The interface includes features for course scheduling, progress tracking, and academic planning, all wrapped in a modern, intuitive design that prioritizes user experience for FHSS students.',
-    image: '/projects/FHSS Uni Planner/FHSS.png',
+    image: '/projects/fhss-uni-planner/fhss.png',
     tags: ['Figma', 'UI/UX Design', 'University Tools'],
     link: '#',
     stats: [
@@ -173,7 +173,7 @@ export const PROJECTS: Project[] = [
       { label: 'Type', value: 'Mobile Design' },
       { label: 'Market', value: 'Education' }
     ],
-    video: '/projects/FHSS Uni Planner/FHHS.mp4'
+    video: '/projects/fhss-uni-planner/fhhs.mp4'
   },
   {
     id: '6',
@@ -181,7 +181,7 @@ export const PROJECTS: Project[] = [
     category: 'UI/UX Design',
     description: 'Prototype of a train App using Figma.',
     longDescription: 'Prototype of a train app with including train tracking, tickets booking and time of the train using Figma. A comprehensive design showcasing modern UI/UX principles for a transportation application.',
-    image: '/projects/Train App/train App.png',
+    image: '/projects/train-app/train-app.png',
     tags: ['Figma', 'UI/UX', 'Prototyping'],
     link: '#',
     stats: [
@@ -189,7 +189,7 @@ export const PROJECTS: Project[] = [
       { label: 'Type', value: 'Prototype' },
       { label: 'Features', value: 'Booking' }
     ],
-    video: '/projects/Train App/train.mp4'
+    video: '/projects/train-app/train.mp4'
   },
   {
     id: '7',
@@ -197,10 +197,10 @@ export const PROJECTS: Project[] = [
     category: 'Mobile App',
     description: 'This project implements platform drivers to find hires easily.',
     longDescription: 'This project implements a platform for drivers to find hires easily. A mobile application that connects drivers with customers, making it easy to find and manage ride requests.',
-    image: '/projects/Driver App/Driving.png',
+    image: '/projects/driver-app/driving.png',
     tags: ['React Native', 'Node.js', 'Google Maps API'],
     link: 'https://github.com/Waverista/Driver-App.git',
-    video: '/projects/Driver App/driver app.mp4',
+    video: '/projects/driver-app/driver-app.mp4',
     stats: [
       { label: 'Platform', value: 'Mobile' },
       { label: 'Features', value: 'Ride Matching' },
@@ -215,7 +215,7 @@ export const CERTIFICATIONS: Certification[] = [
     title: 'Build Generative AI Agents with Vertex AI and Flutter',
     issuer: 'Coursera',
     date: '2026',
-    image: '/certificates/Build Generative AI Agents with Vertex AI and Flutter.png',
+    image: '/certificates/build-gen-ai-agents.png',
     link: 'https://coursera.org/share/5b56492e20f3a602785bc2770a27c783',
     categories: ['mobile', 'ai/ml'],
     description: 'Hands-on certificate focused on combining Flutter app development with Vertex AI-powered generative AI agents, including practical integration patterns and prompt-driven application workflows.'
@@ -225,7 +225,7 @@ export const CERTIFICATIONS: Certification[] = [
     title: 'Getting started with Flutter Development',
     issuer: 'Coursera',
     date: '2026',
-    image: '/certificates/Getting started with Flutter Development.png',
+    image: '/certificates/flutter-development.png',
     link: 'https://coursera.org/share/c7230d2a948928ece3bc6cfb4e079399',
     categories: ['mobile'],
     description: 'Introductory Flutter certificate covering project setup, core widgets, layouts, and the fundamentals of building cross-platform mobile applications.'
