@@ -45,7 +45,7 @@ const App: React.FC = () => {
 
       <Header />
 
-      <main className="relative z-10">
+      <main className="relative">
         <Hero />
         <About />
         <Projects />
@@ -53,7 +53,7 @@ const App: React.FC = () => {
         <Contact />
       </main>
 
-      <div className="relative z-10">
+      <div className="relative">
         <Footer />
       </div>
       <QuickContact

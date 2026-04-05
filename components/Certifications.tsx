@@ -129,7 +129,7 @@ const Certifications: React.FC = () => {
       {/* Holographic Detail Modal */}
       <AnimatePresence>
         {selectedCert && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-12">
+          <div className="fixed inset-0 z-[9999] flex items-center justify-center p-2 md:p-12">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -139,57 +139,65 @@ const Certifications: React.FC = () => {
             />
             <motion.div
               layoutId={selectedCert.id}
-              className="relative w-full max-w-5xl bg-[#0a0f1e] rounded-[2rem] md:rounded-[4rem] overflow-hidden border border-white/10 shadow-2xl z-10 flex flex-col max-h-[90vh]"
+              className="relative w-full max-w-7xl bg-[#0a0f1e] rounded-[1.5rem] md:rounded-[4rem] overflow-hidden border border-white/10 shadow-2xl z-10 flex flex-col md:flex-row h-full max-h-[95vh] md:max-h-[85vh]"
             >
               <button
                 onClick={() => setSelectedCert(null)}
-                className="absolute top-4 right-4 md:top-6 md:right-6 z-20 p-2 md:p-3 bg-black/50 hover:bg-purple-600 text-white rounded-full transition-all border border-white/10 backdrop-blur-md"
+                className="absolute top-6 right-6 z-50 p-3 bg-black/80 hover:bg-purple-600 text-white rounded-full transition-all border border-white/20 backdrop-blur-xl shadow-2xl shadow-black/80"
               >
                 <X size={24} />
               </button>
 
-              <div className="h-[30vh] md:h-[50vh] shrink-0 overflow-hidden relative bg-black/20">
+              {/* Left Side: Credential Image */}
+              <div className="w-full md:w-[60%] h-[40vh] md:h-auto shrink-0 overflow-hidden relative bg-black/20 flex items-center justify-center border-b md:border-b-0 md:border-r border-white/5">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent md:hidden" />
                 <img
                   src={selectedCert.image}
                   alt={selectedCert.title}
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-contain p-2 md:p-8"
                 />
               </div>
 
-              <div className="p-6 md:p-12 flex-1 overflow-y-auto custom-scrollbar">
-                <div className="flex items-center gap-4 mb-6 md:mb-8">
+              {/* Right Side: Details */}
+              <div className="w-full md:w-[40%] p-6 md:p-12 lg:p-16 flex-1 overflow-y-auto custom-scrollbar bg-[#0a0f1e]">
+                <div className="flex items-center gap-4 mb-8">
                   <div className="w-12 h-12 md:w-16 md:h-16 bg-purple-500/20 text-purple-400 rounded-[1rem] md:rounded-[1.5rem] flex items-center justify-center border border-purple-500/30">
                     <Award size={24} className="md:w-8 md:h-8" />
                   </div>
                   <div>
                     <p className="text-xs md:text-sm font-black text-purple-400 uppercase tracking-[0.3em]">{selectedCert.issuer}</p>
-                    <p className="text-[10px] md:text-xs text-slate-500 font-bold uppercase">Quantum Verified</p>
+                    <p className="text-[10px] md:text-xs text-slate-500 font-bold uppercase">Authorized Credential</p>
                   </div>
                 </div>
 
-                <h3 className="text-2xl md:text-4xl font-extrabold mb-6 md:mb-8 text-white leading-tight tracking-tight">{selectedCert.title}</h3>
+                <h3 className="text-2xl md:text-4xl font-extrabold mb-8 text-white leading-tight tracking-tight">{selectedCert.title}</h3>
 
-                <p className="text-slate-400 mb-6 md:mb-8 leading-relaxed text-base md:text-xl italic font-medium">
+                <p className="text-slate-400 mb-10 leading-relaxed text-base md:text-xl italic font-medium">
                   "{selectedCert.description}"
                 </p>
 
-                <div className="flex flex-col md:flex-row gap-4">
+                <div className="flex flex-col gap-4">
+                  <div className="p-5 rounded-2xl border border-white/10 bg-white/5 mb-6">
+                    <div className="text-[10px] text-slate-500 uppercase font-black tracking-widest mb-1">Issue Date</div>
+                    <div className="text-lg font-bold text-white">{selectedCert.date}</div>
+                  </div>
+
                   {selectedCert.link && (
                     <a
                       href={selectedCert.link}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex-1 px-8 py-4 md:px-12 md:py-6 bg-white/5 text-white font-bold rounded-[1.5rem] md:rounded-[2rem] hover:bg-white/10 transition-all border border-white/10 uppercase tracking-widest text-xs md:text-sm inline-flex items-center justify-center gap-3"
+                      className="w-full py-5 bg-purple-600 text-white font-bold rounded-2xl hover:bg-purple-500 transition-all shadow-xl shadow-purple-600/20 uppercase tracking-widest text-xs md:text-sm flex items-center justify-center gap-3"
                     >
-                      <ExternalLink size={16} />
-                      View Credential
+                      <ExternalLink size={18} />
+                      Verify Credential
                     </a>
                   )}
                   <button
                     onClick={() => setSelectedCert(null)}
-                    className="flex-1 px-8 py-4 md:px-12 md:py-6 bg-purple-600 text-white font-bold rounded-[1.5rem] md:rounded-[2rem] hover:bg-purple-500 transition-all shadow-xl shadow-purple-600/20 uppercase tracking-widest text-xs md:text-sm"
+                    className="w-full py-5 bg-white/5 text-white font-bold rounded-2xl hover:bg-white/10 transition-all border border-white/10 uppercase tracking-widest text-[10px]"
                   >
-                    Close
+                    Close View
                   </button>
                 </div>
               </div>

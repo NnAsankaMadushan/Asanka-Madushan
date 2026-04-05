@@ -57,6 +57,23 @@ export const SPECIALIZATIONS: string[] = [
 
 export const PROJECTS: Project[] = [
   {
+    id: '10',
+    title: 'Job Seeker - Chatting App',
+    category: 'Mobile App',
+    platforms: ['mobile'],
+    description: 'A cutting-edge recruitment marketplace with 256-bit AES-GCM encrypted messaging, multi-role recruitment workflows, and biometric security integration.',
+    longDescription: 'Job Seeker - Chatting App is a comprehensive recruitment ecosystem built with Flutter and Firebase. It features a high-security end-to-end encrypted messaging system using AES-GCM 256-bit encryption for private communication between recruiters and candidates. The platform facilitates complex workflows including job posting, application tracking, and an integrated work request system. Security is at its core with biometric app locking (Face ID/Fingerprint), email OTP verification via Brevo, and secure app-wide credential management. The app also integrates Cloudinary for optimized media handling and Google Maps for real-time location-based job discovery. It offers a premium user experience with multi-language support (English, Sinhala, Tamil), dynamic light/dark mode switching, and a modern glassmorphism UI.',
+    image: '/projects/Job Seek App/Job.png',
+    tags: ['Flutter', 'Firebase', 'AES-256 E2EE', 'Cloudinary', 'Brevo OTP', 'Biometric Auth', 'Localization', 'Dark Mode'],
+    link: 'https://github.com/NnAsankaMadushan/Job-Seeker-App.git',
+    stats: [
+      { label: 'Security', value: 'AES-256 E2EE' },
+      { label: 'Languages', value: '3 (EN/SI/TA)' },
+      { label: 'Auth', value: 'Biometric + Social' }
+    ],
+    video: '/projects/Job Seek App/Job Seeker.mp4'
+  },
+  {
     id: '1',
     title: 'Fuel Management System',
     category: 'Web & Mobile App',
@@ -64,7 +81,7 @@ export const PROJECTS: Project[] = [
     description: 'Fuel quota platform with web and mobile clients, email OTP onboarding, QR-based issuing, and n8n-powered automation for vehicle owners, station owners, operators, and admins.',
     longDescription: 'Fuel Management System is a multi-role quota management platform delivered through a React web dashboard and an Expo mobile app. Vehicle owners can register vehicles, monitor remaining quota, and access vehicle QR codes, while station owners and operators manage station activity, scan QR codes during fuel issuing, review logs, and track fuel summaries. The platform also includes secure email OTP verification during account onboarding and role-based access across web and mobile clients. Admin users can review and approve vehicles and stations. The backend also includes n8n automation workflows for account-created emails, fuel receipt emails after each transaction, and scheduled daily station-owner summary notifications.',
     image: '/projects/Fuel Management System/fuel.png',
-    tags: ['React', 'Expo', 'Node.js', 'Email OTP', 'n8n Automation', 'QR Scanning', 'MongoDB', 'Notifications'],
+    tags: ['React', 'React Native', 'Expo', 'Node.js', 'Email OTP', 'n8n Automation', 'QR Scanning', 'MongoDB', 'Notifications'],
     link: 'https://github.com/NnAsankaMadushan/Fuel-Management-System-Web.git',
     repositoryLinks: {
       web: 'https://github.com/NnAsankaMadushan/Fuel-Management-System-Web.git',
@@ -125,22 +142,6 @@ export const PROJECTS: Project[] = [
       { label: 'Sync', value: 'Calendar Ready' }
     ],
     video: '/projects/Reminder Buddy/Reminder Buddy.mp4'
-  },
-  {
-    id: '5',
-    title: 'Job Seek App',
-    category: 'Mobile App',
-    description: 'This project implements platform with job seeking for employees easily.',
-    longDescription: 'QuickHire - A mobile application that makes job seeking easy for employees. This platform connects job seekers with employers, providing a seamless experience for finding and applying to jobs.',
-    image: '/projects/Job Seek App/Job.png',
-    tags: ['Flutter', 'Firebase'],
-    link: 'https://github.com/NnAsankaMadushan/QuickHireApp',
-    stats: [
-      { label: 'Platform', value: 'Mobile' },
-      { label: 'Features', value: 'Job Search' },
-      { label: 'Type', value: 'Employment' }
-    ],
-    video: '/projects/Job Seek App/Quickhire.mp4'
   },
   {
     id: '4',

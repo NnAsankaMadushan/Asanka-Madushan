@@ -154,7 +154,7 @@ const Hero: React.FC = () => {
             transition={{ delay: 1.2, duration: 0.8 }}
             className="text-slate-400 text-base md:text-xl leading-relaxed mb-8 md:mb-10 font-medium"
           >
-            Building high-performance digital products with React, Node.js, Flutter, and automation workflows.
+            Building high-performance digital products with React, Node.js, Flutter, React Native, and automation workflows.
             I focus on scalable architecture, smooth user experience, and practical engineering outcomes.
           </motion.p>
 

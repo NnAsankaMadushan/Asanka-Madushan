@@ -220,34 +220,28 @@ const Projects: React.FC = () => {
       {/* Futuristic Project Modal */}
       <AnimatePresence>
         {selectedProject && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-12">
+          <div className="fixed inset-0 z-[9999] flex items-center justify-center p-2 md:p-12">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setSelectedProject(null)}
-              className="absolute inset-0 bg-black/90 backdrop-blur-2xl"
+              className="absolute inset-0 bg-black/95 backdrop-blur-2xl"
             />
             <motion.div
               layoutId={selectedProject.id}
-              className="relative w-full max-w-5xl bg-[#0a0f1e] rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-[0_0_100px_rgba(34,211,238,0.1)] z-10 flex flex-col max-h-[90vh] border border-white/10"
+              className="relative w-full max-w-7xl bg-[#0a0f1e] rounded-[1.5rem] md:rounded-[2.5rem] overflow-hidden shadow-[0_0_100px_rgba(34,211,238,0.1)] z-10 flex flex-col md:flex-row h-full max-h-[95vh] md:max-h-[85vh] border border-white/10"
             >
               <button
                 onClick={() => setSelectedProject(null)}
-                className="absolute top-4 right-4 md:top-6 md:right-6 z-20 p-2 bg-white/5 hover:bg-cyan-500 text-white rounded-full transition-all border border-white/10 backdrop-blur-md"
+                className="absolute top-6 right-6 z-50 p-3 bg-black/80 hover:bg-cyan-500 text-white rounded-full transition-all border border-white/20 backdrop-blur-xl shadow-2xl shadow-black/80"
               >
                 <X size={24} />
               </button>
 
-              <div className="px-6 pt-6 pb-2 md:px-12 md:pt-10 md:pb-4 flex flex-col shrink-0">
-                <div className="flex items-center gap-2 mb-2 md:mb-3">
-                  <div className="h-[1px] w-6 bg-cyan-500" />
-                  <span className="text-xs font-bold text-cyan-400 uppercase tracking-[0.3em]">{selectedProject.category}</span>
-                </div>
-                <h3 className="text-2xl md:text-4xl font-extrabold text-white tracking-tight pr-12">{selectedProject.title}</h3>
-              </div>
-
-              <div className="w-full aspect-video shrink-0 bg-black/40 flex items-center justify-center overflow-hidden border-y border-white/5">
+              {/* Left Side: Media */}
+              <div className="w-full md:w-[60%] h-[45vh] md:h-auto bg-black/40 flex items-center justify-center overflow-hidden border-b md:border-b-0 md:border-r border-white/5 relative">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent md:hidden" />
                 {selectedProject.embedUrl ? (
                   <iframe
                     src={selectedProject.embedUrl}
@@ -276,38 +270,47 @@ const Projects: React.FC = () => {
                 )}
               </div>
 
-              <div className="w-full p-6 md:p-12 overflow-y-auto custom-scrollbar flex-1 bg-[#0a0f1e]">
-                <div className="flex flex-col md:flex-row gap-8 md:gap-12">
-                  <div className="flex-1">
-                    <div className="flex flex-wrap gap-3 mb-6">
-                      {selectedProject.tags.map(tag => (
-                        <span key={tag} className="px-3 py-1 bg-white/5 border border-white/10 rounded-lg text-[10px] font-bold text-slate-300 uppercase">{tag}</span>
-                      ))}
-                    </div>
-                    <p className="text-slate-400 leading-relaxed text-base md:text-lg font-medium">
-                      {selectedProject.longDescription}
-                    </p>
+              {/* Right Side: Details */}
+              <div className="w-full md:w-[40%] flex flex-col h-full overflow-y-auto custom-scrollbar bg-[#0a0f1e]">
+                <div className="p-6 md:p-10 lg:p-12">
+                  <div className="flex items-center gap-2 mb-4">
+                    <div className="h-[1px] w-6 bg-cyan-500" />
+                    <span className="text-xs font-bold text-cyan-400 uppercase tracking-[0.3em]">{selectedProject.category}</span>
+                  </div>
+                  
+                  <h3 className="text-2xl md:text-4xl font-extrabold text-white tracking-tight mb-6">{selectedProject.title}</h3>
+
+                  <div className="flex flex-wrap gap-2 mb-8">
+                    {selectedProject.tags.map(tag => (
+                      <span key={tag} className="px-3 py-1 bg-white/5 border border-white/10 rounded-lg text-[10px] font-bold text-slate-300 uppercase">{tag}</span>
+                    ))}
                   </div>
 
-                  <div className="w-full md:w-80 shrink-0 flex flex-col gap-6">
-                    <div className="grid grid-cols-2 md:grid-cols-1 gap-4">
-                      {selectedProject.stats.map(stat => (
-                        <div key={stat.label} className="p-4 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-between">
-                          <div>
-                            <div className="text-lg font-black text-cyan-400 mb-0.5">{stat.value}</div>
-                            <div className="text-[9px] text-slate-500 uppercase font-black tracking-widest">{stat.label}</div>
-                          </div>
+                  <p className="text-slate-400 leading-relaxed text-base md:text-lg font-medium mb-10">
+                    {selectedProject.longDescription}
+                  </p>
+
+                  <div className="grid grid-cols-1 gap-4 mb-10">
+                    {selectedProject.stats.map(stat => (
+                      <div key={stat.label} className="p-5 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-between group/stat hover:border-cyan-500/30 transition-all">
+                        <div>
+                          <div className="text-lg font-black text-cyan-400 mb-0.5">{stat.value}</div>
+                          <div className="text-[9px] text-slate-500 uppercase font-black tracking-widest">{stat.label}</div>
                         </div>
-                      ))}
-                    </div>
-                    <a
-                      href={selectedProjectRepositoryLink}
-                      className="w-full py-4 bg-cyan-600 text-white text-center font-bold rounded-xl flex items-center justify-center gap-3 hover:bg-cyan-500 transition-all shadow-xl shadow-cyan-600/20 uppercase tracking-widest text-xs"
-                    >
-                      <ExternalLink size={18} />
-                      {selectedProjectRepositoryLabel}
-                    </a>
+                        <Layers size={18} className="text-slate-800" />
+                      </div>
+                    ))}
                   </div>
+
+                  <a
+                    href={selectedProjectRepositoryLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-5 bg-cyan-600 text-white text-center font-bold rounded-2xl flex items-center justify-center gap-3 hover:bg-cyan-500 transition-all shadow-xl shadow-cyan-600/20 uppercase tracking-widest text-xs"
+                  >
+                    <ExternalLink size={18} />
+                    {selectedProjectRepositoryLabel}
+                  </a>
                 </div>
               </div>
             </motion.div>

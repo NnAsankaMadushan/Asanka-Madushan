@@ -42,12 +42,12 @@ const Header: React.FC<HeaderProps> = () => {
         </Magnetic>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center space-x-10">
+        <nav className="hidden lg:flex items-center gap-4 xl:gap-10">
           {navLinks.map((link) => (
             <Magnetic key={link.name} strength={0.3}>
               <a
                 href={link.href}
-                className="text-xs font-bold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all relative group py-2"
+                className="text-[10px] xl:text-xs font-bold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all relative group py-2"
               >
                 {link.name}
                 <motion.span
@@ -62,7 +62,7 @@ const Header: React.FC<HeaderProps> = () => {
               <motion.a
                 href="/Asanka_Madushan.pdf"
                 download
-                className="flex items-center gap-2 px-6 py-3 bg-cyan-500/10 border border-cyan-400/30 rounded-xl text-xs font-bold text-cyan-500 dark:text-cyan-400 uppercase tracking-widest hover:bg-cyan-500 hover:text-white transition-all duration-300 shadow-xl shadow-cyan-500/5"
+                className="flex items-center gap-2 px-4 xl:px-6 py-2.5 xl:py-3 bg-cyan-500/10 border border-cyan-400/30 rounded-xl text-[10px] xl:text-xs font-bold text-cyan-500 dark:text-cyan-400 uppercase tracking-widest hover:bg-cyan-500 hover:text-white transition-all duration-300 shadow-xl shadow-cyan-500/5"
               >
                 <Download size={14} />
                 CV
@@ -72,7 +72,7 @@ const Header: React.FC<HeaderProps> = () => {
         </nav>
 
         {/* Mobile Nav Toggle */}
-        <div className="md:hidden flex items-center gap-4">
+        <div className="lg:hidden flex items-center gap-4">
           <button
             className="text-slate-900 dark:text-white p-2 relative z-[1001] bg-white/5 rounded-full backdrop-blur-md border border-white/10"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -91,7 +91,7 @@ const Header: React.FC<HeaderProps> = () => {
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 30, stiffness: 200 }}
-            className="md:hidden fixed inset-0 z-[1000] w-full h-screen bg-black/95 backdrop-blur-2xl flex flex-col items-center justify-center font-black"
+            className="lg:hidden fixed inset-0 z-[1000] w-full h-screen bg-black/95 backdrop-blur-2xl flex flex-col items-center justify-center font-black"
           >
             <div className="flex flex-col items-center gap-10 relative z-10 w-full px-10">
               {navLinks.map((link, idx) => (
