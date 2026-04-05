@@ -33,7 +33,7 @@ const Certifications: React.FC = () => {
     return cert.categories.includes(activeFilter);
   });
 
-  const visibleCertifications = showAll ? filteredCertifications : filteredCertifications.slice(0, 6);
+  const visibleCertifications = showAll ? filteredCertifications : filteredCertifications.slice(0, 8);
 
   return (
     <section id="certifications" className="py-20 md:py-32 relative">
@@ -77,7 +77,7 @@ const Certifications: React.FC = () => {
           })}
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-10">
           {visibleCertifications.map((cert, idx) => (
             <motion.div
               key={cert.id}
@@ -109,7 +109,7 @@ const Certifications: React.FC = () => {
           ))}
         </div>
 
-        {!showAll && filteredCertifications.length > 6 && (
+        {!showAll && filteredCertifications.length > 4 && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
