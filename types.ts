@@ -11,6 +11,7 @@ export interface Project {
   image: string;
   tags: string[];
   link: string;
+  linkLabel?: string;
   repositoryLinks?: Partial<Record<ProjectPlatform, string>>;
   stats: { label: string; value: string }[];
   video?: string;

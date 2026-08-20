@@ -57,6 +57,24 @@ export const SPECIALIZATIONS: string[] = [
 
 export const PROJECTS: Project[] = [
   {
+    id: '11',
+    title: 'Reel Vista - Cinema & TV Series App',
+    category: 'Mobile App',
+    platforms: ['mobile'],
+    description: 'A cinema and TV series streaming application built with Flutter, Firebase, and TMDB, featuring multi-quality video playback, subtitles, VIP content, and offline progress tracking.',
+    longDescription: 'Reel Vista is a full-featured video streaming and entertainment mobile application built with Flutter. It integrates Firebase (Auth, Firestore, Cloud Messaging, In-App Messaging), TMDB API for rich cinema metadata, Brevo for secure OTP email authentication, and Google AdMob monetization. The app features advanced video playback with multi-resolution quality switching (720p/1080p), multi-language subtitle parsing (SRT parser), custom Picture-in-Picture (PiP) support, watchlist management, watch-progress sync, VIP membership tiers, and push notifications.',
+    image: '/projects/Reel Vista/Reel Vista.jpeg',
+    tags: ['Flutter', 'Firebase', 'TMDB API', 'Video Streaming', 'Subtitles (SRT)', 'Brevo OTP', 'AdMob', 'Picture-in-Picture'],
+    link: 'https://play.google.com/store/apps/details?id=com.nnamadushan.reelvista',
+    linkLabel: 'Google Play Store',
+    stats: [
+      { label: 'Platform', value: 'Google Play' },
+      { label: 'Streaming', value: 'Multi-Quality HD' },
+      { label: 'Features', value: 'PiP & Subtitles' }
+    ],
+    video: '/projects/Reel Vista/Reel Vista.mp4'
+  },
+  {
     id: '10',
     title: 'Job Seeker - Chatting App',
     category: 'Mobile App',

@@ -29,6 +29,10 @@ const getProjectRepositoryLink = (project: Project, activeFilter: ProjectFilter)
 };
 
 const getProjectRepositoryLabel = (project: Project, activeFilter: ProjectFilter) => {
+  if (project.linkLabel) {
+    return project.linkLabel;
+  }
+
   if (activeFilter === 'mobile' && project.repositoryLinks?.mobile) {
     return 'Mobile Git Repository';
   }
