@@ -89,6 +89,7 @@ const Projects: React.FC = () => {
     })
     .sort((a, b) => {
       const getPriority = (project: Project) => {
+        if (project.id === '11') return -1;
         if (isDualPlatformProject(project)) return 0;
         if (isMobileProject(project)) return 1;
         if (isWebProject(project)) return 2;
